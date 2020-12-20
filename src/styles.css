@@ -1,0 +1,168 @@
+@font-face {
+  font-family: "sutbold";
+  src: url("assets/fonts/sut_bold_ver_1.00-webfont.eot");
+  src: url("assets/fonts/sut_bold_ver_1.00-webfont.eot?#iefix") format("embedded-opentype"),
+    url("assets/fonts/sut_bold_ver_1.00-webfont.woff2") format("woff2"),
+    url("assets/fonts/sut_bold_ver_1.00-webfont.woff") format("woff"),
+    url("assets/fonts/sut_bold_ver_1.00-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  unicode-range: U+0E00 –U + 0e7f;
+}
+
+@font-face {
+  font-family: "sutregular";
+  src: url("assets/fonts/sut_regular_ver_1.00-webfont.eot");
+  src: url("assets/fonts/sut_regular_ver_1.00-webfont.eot?#iefix") format("embedded-opentype"),
+    url("assets/fonts/sut_regular_ver_1.00-webfont.woff2") format("woff2"),
+    url("assets/fonts/sut_regular_ver_1.00-webfont.woff") format("woff"),
+    url("assets/fonts/sut_regular_ver_1.00-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  unicode-range: U+0E00 –U + 0e7f;
+}
+
+@font-face {
+  font-family: "sutlight";
+  src: url("assets/fonts/sut_light_ver_1.00-webfont.eot");
+  src: url("assets/fonts/sut_light_ver_1.00-webfont.eot?#iefix") format("embedded-opentype"),
+    url("assets/fonts/sut_light_ver_1.00-webfont.woff2") format("woff2"),
+    url("assets/fonts/sut_light_ver_1.00-webfont.woff") format("woff"),
+    url("assets/fonts/sut_light_ver_1.00-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  unicode-range: U+0E00 –U + 0e7f;
+}
+
+@font-face {
+  font-family: "DBCond";
+  src: url("assets/fonts/Helvethaica/DBHelvethaicaXCondv3.2.ttf");
+  font-weight: normal;
+  font-style: normal;
+  unicode-range: U+0E00 –U + 0e7f;
+}
+
+@font-face {
+  font-family: "DBBold";
+  src: url("assets/fonts/Helvethaica/DBHelvethaicaXMedv3.2.ttf");
+  font-weight: normal;
+  font-style: normal;
+  unicode-range: U+0E00 –U + 0e7f;
+}
+
+@font-face {
+  font-family: "DBRegular";
+  src: url("assets/fonts/Helvethaica/DBHelvethaicaXv3.2.ttf");
+  font-weight: normal;
+  font-style: normal;
+  unicode-range: U+0E00 –U + 0e7f;
+}
+
+@font-face {
+  font-family: "DBLight";
+  src: url("assets/fonts/Helvethaica/DBHelvethaicaXLiv3.2.ttf");
+  font-weight: normal;
+  font-style: normal;
+  unicode-range: U+0E00 –U + 0e7f;
+}
+
+:root {
+  --navbar-height: 7vmax;
+  --main-black-color: #292929;
+  --main-blue-color: #271f66;
+  --main-green-color: #1dbea0;
+  --main-red-color: #e9565f;
+  --main-blue-gd: linear-gradient(220deg, rgba(39, 31, 102, 1) 0%, rgba(29, 190, 160, 1) 100%);
+
+  --dark-gray: #505050;
+  --dark-gray-2: #626262;
+  --dark-gray-3: #e4e4e4;
+  --dark-gray-4: #d8d8d8;
+  --gray: #f4f4f4;
+  --gray-2: #fafafa;
+  --gray-3: #fcfcfc;
+
+  --box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.4);
+  --soft-box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.ripple-container {
+  visibility: hidden;
+}
+
+body {
+  background-color: transparent;
+  overflow-x: hidden;
+}
+
+/* .mat-button {
+  font-family: unset;
+  border: unset;
+  cursor: pointer;
+  -webkit-tap-highlight-color: unset;
+  display: unset;
+  white-space: unset;
+  min-width: unset;
+  line-height: unset;
+  padding: unset;
+  border-radius: unset;
+  overflow: unset;
+} */
+
+/* .mat-button-focus-overlay,
+.mat-button-ripple.mat-ripple {
+  top: unset;
+  left: unset;
+  right: unset;
+  bottom: unset;
+  position: unset;
+  pointer-events: unset;
+  border-radius: unset;
+} */
+
+.button-radius {
+  border-radius: 100px !important;
+  width: fit-content;
+  width: intrinsic; /* Safari/WebKit uses a non-standard name */
+  width: -moz-max-content; /* Firefox/Gecko */
+  height: fit-content;
+  padding: 0 calc(1vmax + 1vmin);
+  border: none;
+}
+.button-radius:active {
+  transform: translateY(2px);
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+}
+
+/* ------------------------ Moblie ------------------------ */
+@media only screen and (min-width: 320px) and (max-height: 812px) and (orientation: portrait) {
+}
+
+@media only screen and (min-width: 320px) and (orientation: landscape) {
+}
+
+/* ------------------------ Moblie ONLY X portrait ------------------------ */
+@media only screen and (width: 375px) and (height: 812px) and (orientation: portrait) {
+}
+
+/* ------------------------ Ipad ------------------------ */
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+}
+
+/* ------------------------ Desktops ------------------------ */
+@media only screen and (min-width: 1025px) {
+}
+
+html,
+body {
+  min-height: 100%;
+}
+/* body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
