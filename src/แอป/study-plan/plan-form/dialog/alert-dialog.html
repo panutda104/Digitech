@@ -1,0 +1,16 @@
+<section class="text-center">
+  <div class="checkmark">
+    <ng-container *ngIf="data.success; else fail">
+      <mat-icon class="material-icons-round success" [inline]="true">check_circle_outline</mat-icon>
+    </ng-container>
+    <ng-template #fail>
+      <mat-icon class="material-icons-round fail" [inline]="true">cancel_outline</mat-icon>
+    </ng-template>
+    <p>{{data.text}}</p>
+    <div *ngIf="!data.success" class="button-area">
+      <button (click)="onNoClick()" class="button-radius back-button">
+        <span> กลับ </span>
+      </button>
+    </div>
+  </div>
+</section>

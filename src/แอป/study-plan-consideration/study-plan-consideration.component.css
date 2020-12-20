@@ -1,0 +1,95 @@
+::ng-deep body {
+  background: var(--main-blue-gd);
+}
+:host {
+  display: flex;
+  font-family: "sutRegular";
+  font-size: calc(0.25vmin + 0.25vmax + 10px);
+  padding: 2.5%;
+}
+
+section {
+  width: 100%;
+  margin: 7.5rem 1rem;
+  /* background-color: #fafafa; */
+}
+section .header {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  font-size: 2.75rem;
+  text-align: center;
+  font-family: "sutRegular";
+  color: #ffffff;
+  text-shadow: 1px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+section .content {
+  background-color: #fafafa;
+  margin: 1rem 0;
+  padding: 2.5% 5%;
+  box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.4);
+  min-height: 70vh;
+}
+/* ------------------------------ */
+/* mat-tab */
+/* ------------------------------ */
+::ng-deep .type-tab .mat-tab-label,
+.type-tab .mat-tab-link {
+  font-family: "SUTBold";
+  font-size: 1.75rem;
+  width: 20%;
+  color: var(--main-black-color);
+  opacity: 0.8 !important;
+}
+::ng-deep .type-tab .mat-tab-label-active {
+  color: #20908f !important;
+  text-shadow: 1px 2px 8px rgba(0, 0, 0, 0.1);
+  opacity: 1 !important;
+}
+
+::ng-deep .mat-tab-group.mat-primary .mat-ink-bar,
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: #20908f;
+}
+
+.table-tab {
+  margin: 2rem 0;
+}
+
+::ng-deep .table-tab .mat-tab-header {
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  margin: 0 auto;
+  background-color: #efefef;
+  border-radius: 100px;
+  border-bottom: 0 !important;
+}
+::ng-deep .table-tab .mat-tab-label,
+.table-tab .mat-tab-link {
+  font-family: "SUTBold";
+  font-size: 1.25rem;
+  color: var(--main-black-color);
+  opacity: 0.8 !important;
+  padding: 0 1rem !important;
+  /* min-width: max-content; */
+  height: 2.3rem;
+}
+
+::ng-deep .table-tab .mat-tab-label-active {
+  color: var(--main-black-color) !important;
+  text-shadow: 1px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+::ng-deep .table-tab .mat-ink-bar {
+  width: 20% !important;
+}
+
+::ng-deep .table-tab .mat-tab-group.mat-primary .mat-ink-bar,
+::ng-deep .table-tab .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  /* display: none; */
+  background-color: #b9e2e2 !important;
+  height: 100%;
+  border-radius: 100px;
+  z-index: -1;
+}

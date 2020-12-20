@@ -1,0 +1,1018 @@
+::ng-deep body {
+  background: var(--main-blue-gd);
+}
+:host {
+  display: flex;
+  font-family: "sutRegular";
+  font-size: calc(0.25vmin + 0.25vmax + 10px);
+  padding: 2.5%;
+}
+
+.scroll-to-top {
+  position: fixed;
+  z-index: 100;
+  right: 0;
+  bottom: 0;
+  margin: 1rem;
+  padding: 0.5rem 2rem;
+  font-size: 1.5rem;
+  background-color: var(--main-red-color);
+  color: #fff;
+  box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  border-radius: 100px;
+  opacity: 0.9;
+}
+
+.scroll-to-top fa-icon {
+  vertical-align: text-top;
+  margin-right: 0.25rem;
+  color: #fff;
+}
+
+section {
+  width: 100%;
+  margin: 7.5rem 1rem;
+  /* background-color: #fafafa; */
+}
+section .header {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  font-size: 2.75rem;
+  text-align: center;
+  font-family: "sutRegular";
+  color: #ffffff;
+  text-shadow: 1px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+section .plan-container {
+  margin-top: 1rem;
+  padding: 2.5% 5%;
+  width: 100%;
+  background: #fafafa;
+  box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+section .title {
+  margin: 1% 0;
+  display: flex;
+  position: relative;
+  height: max-content;
+}
+
+section .title .issue {
+  font-family: "sutbold";
+  color: #292929;
+  text-shadow: 1px 2px 8px rgba(0, 0, 0, 0.1);
+  font-size: 2rem;
+  text-indent: 1vw;
+}
+
+section .title .button-area {
+  font-family: "sutbold";
+  font-size: 1.15rem;
+  margin-left: auto;
+  /* margin-right: 1vw; */
+}
+
+section .title .button-area button {
+  vertical-align: sub;
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  padding: 0 1.25rem !important;
+  margin-left: 1rem;
+}
+
+section .title .button-area button span {
+  vertical-align: inherit;
+}
+
+section .title .button-area button span fa-icon {
+  vertical-align: text-top;
+  margin-right: 0.25rem;
+}
+
+section .title .button-area .edit-button {
+  color: var(--main-black-color);
+  background-color: #cbcbcb;
+}
+
+section .title .button-area .save-button {
+  color: #fff;
+  background-color: var(--main-green-color);
+}
+
+section .title .button-area .back-button {
+  color: var(--main-black-color);
+  background-color: #cbcbcb;
+}
+section .title .button-area .approve-button {
+  color: #fff;
+  background-color: #42bc63;
+}
+section .title .button-area .advise-button {
+  color: #fff;
+  background-color: #1eb2fc;
+}
+section .title .button-area .cancel-button {
+  color: #fff;
+  background-color: #d91818;
+}
+section .title .button-area .remove-button {
+  color: #fff;
+  background-color: #d91818;
+}
+
+section .title .button-area .request-button {
+  color: #faeed7;
+  background-color: #feb82b;
+}
+
+section .study-plan-content {
+  background-color: #ffffff;
+  border-radius: 7px;
+  padding: 2.5%;
+  box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.tree ul,
+.tree li {
+  /* margin-top: 0;
+  margin-bottom: 0; */
+  list-style-type: none;
+}
+
+/* --------- study-plan-info --------- */
+
+.study-plan-info {
+  width: 100%;
+  background-color: var(--gray);
+  height: fit-content;
+  padding: 1rem 2rem;
+  border-radius: 7px;
+  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.1);
+  /* margin: 1rem 0; */
+}
+
+.study-plan-info form {
+  /* margin-bottom: 1.125rem; */
+  margin-bottom: 0;
+}
+.study-plan-name {
+  display: flex;
+}
+
+.study-plan-name span {
+  font-family: "sutBold";
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  padding: 0.25rem;
+  min-width: fit-content;
+}
+
+.study-plan-name .form-control {
+  width: 100%;
+  font-family: "sutRegular";
+  font-size: 1.25rem;
+}
+
+::ng-deep .study-plan-name .bmd-form-group {
+  width: 100%;
+  position: relative;
+  padding-top: 0.4rem;
+}
+
+/*  ------------------ mat -------------------- */
+.mat-tree-node {
+  width: 100%;
+  position: relative;
+  min-height: unset;
+  margin-top: 0.5em;
+  flex: none;
+  align-items: flex-start;
+}
+
+.tree ul {
+  overflow: hidden;
+}
+
+.tree ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  -ms-box-orient: horizontal;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: calc(100% - (1.5vmax + 2vmin) - 1vw);
+  visibility: visible;
+  opacity: 1;
+
+  transition-delay: 0s;
+}
+
+.tree li {
+  width: 100%;
+  /* margin: 0 1em; */
+}
+.module-content {
+  width: 100%;
+  font-family: "sutRegular";
+
+  margin: 0.5vh 0;
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 100px;
+}
+.module-box {
+  font-family: "sutbold";
+  font-size: calc(1vmax + 1vmin);
+  width: 33%;
+  min-width: 250px;
+  margin: 0.5vh calc(1% / 4);
+  flex: unset !important;
+  overflow: unset !important;
+  word-wrap: unset;
+}
+
+.module-box:first-child {
+  margin-left: 0px;
+}
+.module-box:last-child {
+  margin-right: 0px;
+}
+
+.box-header {
+  text-align: center;
+  width: 100%;
+  height: calc(1vmax + 2vmin);
+  line-height: calc(1vmax + 2vmin);
+  background-color: #f4f4f4;
+}
+.box-body {
+  font-size: 0.75em;
+  line-height: 1em;
+  background-color: #fdfdfd;
+  padding: 1%;
+  margin-top: 1vh;
+}
+.box-content {
+  position: relative;
+  margin: 5%;
+}
+.box-content .title {
+  display: inline-block;
+  width: 100%;
+}
+.box-content .title p {
+  margin: 0;
+  padding-right: 30%;
+}
+.box-content button {
+  position: absolute;
+  font-size: 0.75em;
+  right: 0;
+  border: 2px solid var(--main-red-color);
+  color: var(--main-red-color);
+  padding: 0.1vmin 1vw;
+  margin: 1vh 0;
+  background-color: transparent;
+  max-width: 30%;
+}
+.box-content::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: #d8d8d8;
+  top: 100%;
+  left: 0;
+  margin: 1vh 0;
+}
+.box-content:last-child::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: #d8d8d8;
+  top: 100%;
+  left: 0;
+  margin: 1vh 0;
+  display: none;
+}
+
+/* ------------------ mat Select  ---------------------- */
+
+/* ::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: unset;
+} */
+
+.mat-form-field,
+.mat-select,
+.mat-option {
+  font-family: "sutRegular";
+}
+.box-content .mat-option[aria-disabled="true"] {
+  pointer-events: none;
+}
+
+::ng-deep .panel-body .mat-form-field-underline {
+  display: none;
+}
+::ng-deep .panel-body .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  color: var(--main-red-color);
+}
+::ng-deep .panel-body .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: var(--main-red-color);
+}
+
+::ng-deep .panel-body .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+  padding-bottom: 0;
+}
+
+::ng-deep .panel-body .mat-form-field-infix {
+  border-top: 0;
+}
+::ng-deep .panel-body .mat-form-field-appearance-legacy .mat-form-field-infix {
+  padding: 0;
+}
+/* ::ng-deep .mat-select-panel .mat-option {
+  height: 2em !important;
+} */
+::ng-deep .panel-body .mat-form-field-appearance-legacy .mat-form-field-label {
+  top: 0em;
+}
+::ng-deep .panel-body .mat-form-field-label-wrapper {
+  top: 0em;
+  padding-top: 0em;
+}
+
+/* ------------------ Mat panel  ---------------------- */
+
+.mat-expansion-panel:not([class*="mat-elevation-z"]) {
+  box-shadow: unset;
+}
+
+.mat-accordion .mat-expansion-panel:last-of-type {
+  margin: 0.25rem 0;
+}
+.mat-expansion-panel {
+  border-radius: unset;
+}
+
+::ng-deep .year .svg-inline--fa {
+  display: block !important;
+}
+/* ------------------ year panel  ---------------------- */
+
+.year .mat-expansion-panel-header,
+.year .mat-expansion-panel-header.mat-expanded,
+.year .mat-expansion-panel-header.mat-expanded:hover,
+.year .mat-expansion-panel-header.mat-expanded:focus,
+.year .mat-expansion-panel-header.mat-expanded {
+  background-color: #f4f4f4;
+  border-radius: 7px;
+  font-family: "sutBold";
+}
+
+.year > .mat-expansion-panel > .mat-expansion-panel-header {
+  border-left: 0.5rem solid #505050;
+}
+
+::ng-deep .year .mat-expansion-panel-body {
+  padding: 0 !important;
+}
+
+.trimester .mat-expansion-panel-header {
+  border-left: unset;
+}
+
+.mat-expansion-panel-header span {
+  font-family: "sutbold";
+  font-size: 1.5rem;
+  /* line-height: 1.5rem; */
+}
+/* ------------------ trimester panel  ---------------------- */
+
+/* หน่วยกิต */
+.trimester > p {
+  text-align: right;
+  font-size: 0.85rem;
+  /* line-height: calc(0.5vmax + 0.5vmin); */
+  margin: 0.25rem;
+  font-family: "sutBold";
+}
+
+.trimester > p > span {
+  background-color: #e3e3e3;
+  padding: 0 0.5rem;
+  border-radius: 5px;
+  margin-right: 0.25rem;
+}
+
+.panel-content {
+  width: 100%;
+  font-family: "sutRegular";
+  margin: 0.5rem 0;
+  /* display: flex;
+  flex-wrap: wrap; */
+  min-height: 100px;
+}
+
+.panel-box {
+  /* font-size: calc(1vmax + 1.5vmin); */
+  width: 100%;
+  padding: 0 calc(2.5% / 4);
+  min-width: 300px;
+  /* margin: 1vh calc(4% / 4); */
+}
+.panel-box:first-child {
+  padding-left: 0px;
+}
+.panel-box:last-child {
+  padding-right: 0px;
+}
+.panel-box .panel-header {
+  font-family: "sutBold";
+  font-size: 1.15rem;
+  line-height: 1.25rem;
+  padding: 0.5rem;
+  border-radius: 7px;
+  text-align: center;
+  width: 100%;
+  background-color: #f4f4f4;
+}
+.panel-body {
+  padding: 2%;
+}
+
+.panel-body .mat-expansion-panel-header-title span {
+  font-family: "sutbold";
+  font-size: 1rem;
+  width: max-content;
+}
+
+.panel-body .type-section {
+  background-color: var(--gray-3);
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  border-radius: 7px;
+}
+
+.panel-body .type-section .mat-form-field {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 7px;
+  background-color: var(--gray);
+}
+
+.panel-body .type-section .module-choice {
+  max-height: 12rem;
+  /* overflow-y: scroll;
+  overflow-x: hidden; */
+
+  background-color: var(--gray);
+  margin: 0.25rem 0;
+  padding: 1rem;
+  border-radius: 7px;
+}
+
+.main_course_choice {
+  max-height: 17.5rem !important;
+}
+
+.main_course_choice .mat-list-base {
+  height: 15.5rem !important;
+}
+
+/* checkbox */
+::ng-deep.mat-pseudo-checkbox {
+  position: absolute !important;
+  top: 0.375rem;
+}
+::ng-deep.mat-pseudo-checkbox-checked {
+  background: var(--main-green-color) !important;
+}
+
+.mat-list-option .id {
+  padding-left: 16px;
+  font-family: "sutBold";
+  font-size: calc(0.5rem + 0.25vw + 0.25vh);
+}
+
+.mat-list-option .name {
+  padding-left: 16px;
+  font-family: "sutBold";
+  font-size: calc(0.55rem + 0.25vw + 0.25vh);
+}
+
+.mat-list-option .name > span {
+  background-color: var(--gray);
+  color: var(--dark-gray);
+  border-radius: 10px;
+  padding: 0 0.75rem;
+  margin-left: 0.25rem;
+  margin-bottom: 0.15rem;
+  font-size: 0.7rem;
+  display: inline-block;
+}
+
+/* mat list option */
+
+.mat-list-base {
+  height: 10rem;
+  overflow-y: scroll;
+}
+
+.mat-list-base .mat-list-item,
+.mat-list-base .mat-list-option {
+  display: block;
+  height: auto;
+  -webkit-tap-highlight-color: transparent;
+  background-color: white;
+  margin: 0.25rem 0;
+  width: 100%;
+  padding: 0;
+  border-radius: 3px;
+  box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.mat-list-base {
+  padding-top: 0;
+}
+
+.mat-list-option {
+  font-family: "sutRegular";
+}
+
+::ng-deep.mat-list-base .mat-list-item .mat-list-item-content,
+.mat-list-base .mat-list-option .mat-list-item-content {
+  padding: 0.25rem 0.75rem !important;
+}
+
+::ng-deep.mat-list-base .mat-list-option.mat-list-option .mat-list-item-content .mat-list-text {
+  padding-left: 0.75rem !important;
+}
+.mat-option.mat-option-disabled {
+  pointer-events: none;
+  color: var(--dark-gray-2);
+}
+.mat-list-option-disabled {
+  pointer-events: none;
+  color: var(--dark-gray-2);
+  background-color: var(--dark-gray-3) !important;
+}
+
+/* mat option */
+
+.mat-option {
+  height: max-content !important;
+  padding: 0;
+}
+
+.mat-option .row {
+  margin: 0;
+}
+.mat-option .module-id {
+  padding: 0.5rem;
+  font-family: "sutBold";
+  font-size: 1rem;
+  line-height: 1.25rem;
+  text-align: right;
+}
+
+.mat-option .module-name {
+  padding: 0.5rem 1rem;
+  font-family: "sutBold";
+  font-size: 1rem;
+  line-height: 1.25rem;
+  white-space: normal;
+}
+
+.mat-option .module-name > span {
+  background-color: var(--dark-gray-3);
+  color: var(--dark-gray);
+  border-radius: 10px;
+  padding: 0 0.75rem;
+  margin-bottom: 0.15rem;
+  font-size: 0.7rem;
+  display: inline-block;
+}
+
+.mat-option .course-id {
+  padding: 0.25rem;
+  font-family: "sutBold";
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.mat-option .course-name {
+  padding: 0.25rem 0.75rem;
+  font-family: "sutBold";
+  font-size: 0.75rem;
+  line-height: 1rem;
+  white-space: normal;
+}
+
+.mat-option .course-name > span {
+  background-color: var(--dark-gray-3);
+  color: var(--dark-gray);
+  border-radius: 10px;
+  padding: 0 0.5rem;
+  margin-bottom: 0.15rem;
+  font-size: 0.5rem;
+  display: inline-block;
+}
+
+/* select field */
+.relative {
+  margin: unset;
+}
+
+/* --------- form control ----------- */
+.form-control {
+  color: unset;
+  padding: 0;
+  font-size: unset;
+}
+
+/* --------- credit-total --------- */
+
+.sticky-side {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 1rem;
+}
+
+.credit-total {
+  margin: 1rem 1vw;
+  padding: 1rem;
+  background-color: var(--gray);
+  box-shadow: var(--box-shadow);
+}
+
+.credit-total > .header {
+  display: table;
+  margin: 0 auto 1rem auto;
+  padding: 0 0.75rem;
+  background-color: var(--dark-gray);
+  color: #ffffff;
+  font-family: "sutBold";
+  font-size: 1.25rem;
+  border-radius: 7px;
+  width: fit-content;
+  box-shadow: var(--soft-box-shadow);
+}
+
+.credit-total .body {
+  margin-top: 0.5rem;
+  padding: 1rem;
+  background-color: #ffffff;
+  font-family: "sutRegular";
+  border-radius: 7px;
+}
+.credit-total .credit-warnning {
+  color: var(--main-red-color);
+}
+
+hr {
+  border: 1px solid var(--dark-gray-3);
+  margin: 0.2rem 0;
+  border-radius: 1px;
+}
+.credit-total .body > div {
+  display: flex;
+}
+
+.credit-total .body > div {
+  padding: 0 0.5rem;
+  font-size: 0.9rem;
+}
+.credit-total .body > div:first-of-type {
+  font-size: 1rem;
+  padding: 0;
+}
+
+.credit-total .body > div p {
+  margin: 0;
+}
+
+.credit-total .body > div > p:last-of-type {
+  margin-left: auto;
+}
+
+.credit-total .footer {
+  font-family: "sutBold";
+  font-size: 1rem;
+  text-align: right;
+  margin-top: 1rem;
+}
+
+.credit-total .footer span {
+  background-color: #e3e3e3;
+  border-radius: 5px;
+  padding: 0 0.5rem;
+  margin: 0 0.25rem;
+}
+
+/* --------- other-career --------- */
+.other-career,
+.comment-area {
+  margin: 1rem 1vw;
+  padding: 1rem;
+  background-color: var(--gray);
+  box-shadow: var(--box-shadow);
+}
+
+.other-career .header {
+  display: table;
+  margin: 0 auto 1rem auto;
+  padding: 0 0.75rem;
+  background-color: var(--dark-gray);
+  color: #ffffff;
+  font-family: "sutBold";
+  font-size: 1.25rem;
+  border-radius: 7px;
+  width: fit-content;
+  box-shadow: var(--soft-box-shadow);
+}
+.shoulded-career {
+  display: flex !important;
+}
+.shoulded-career > .order {
+  width: 20%;
+  margin: auto;
+}
+
+.shoulded-career > .order > .circle {
+  position: relative;
+  width: 75%;
+  padding-bottom: 75%;
+  background: var(--gray);
+  border-radius: 75%;
+}
+.shoulded-career > .order > .circle h3 {
+  font-size: 1.5rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+}
+.shoulded-career > .content {
+  display: grid;
+  width: 80%;
+}
+.other-career .career-progress-bar {
+  padding: 0.5rem 1rem;
+  background-color: #ffffff;
+  border-radius: 7px;
+  display: grid;
+  margin: 1.5% 0;
+}
+
+.other-career .career-progress-bar p {
+  display: inline-block;
+  width: 100%;
+  margin: 0;
+}
+.other-career .career-progress-bar p:first-of-type {
+  font-family: "sutBold";
+  font-size: 1rem;
+  line-height: 1rem;
+}
+
+.other-career .career-progress-bar p:last-of-type {
+  font-family: "sutRegular";
+  color: #434343;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  margin-right: 0.5rem;
+}
+
+.career-progress-bar .progress,
+.career-progress-bar .progress .progress-bar {
+  height: calc(0.25vmax + 0.25vmin + 1.5px);
+  border-radius: 10px;
+}
+.career-progress-bar .progress {
+  background-color: var(--dark-gray-3);
+}
+.career-progress-bar .progress .progress-bar {
+  background-color: var(--main-green-color);
+}
+
+.box-shadow {
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* --------- comment-area --------- */
+.comment-area .header {
+  text-align: center;
+  font-family: "sutBold";
+  font-size: 1.25rem;
+  color: var(--main-black-color);
+  margin: 0.25rem 0;
+}
+
+.comment-area .comment {
+  font-family: "SUTRegular";
+  font-size: 1rem;
+  color: var(--main-black-color);
+  background-color: white;
+  border: 2px solid #a0a0a0;
+  border-radius: 5px;
+  padding: 0.5rem 0.75rem;
+  margin: 0.5rem 0;
+  height: max-content;
+  min-height: 5rem;
+}
+
+.comment-area button {
+  display: flex;
+  vertical-align: sub;
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  padding: 0.2rem 1.5rem !important;
+  margin-left: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-family: "sutbold";
+  font-size: 1rem;
+  color: #fff;
+  background-color: #c1c1c1;
+}
+
+.comment-area button span fa-icon {
+  font-size: 1rem;
+  margin-right: 0.25rem;
+  vertical-align: middle;
+}
+
+/* arrow */
+
+.mat-expansion-panel-header-title,
+.mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.mat-expansion-panel-header-description {
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0;
+}
+
+/* button */
+
+section .study-plan-content .button-area {
+  display: table;
+  margin: 2.5rem auto;
+}
+
+section .study-plan-content button {
+  vertical-align: sub;
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  padding: 0.15rem 1.5rem !important;
+  margin: 0 0.5rem;
+  font-family: "sutbold";
+  font-size: 1.25rem;
+}
+
+section .study-plan-content .save-button {
+  color: #fff;
+  background-color: var(--main-green-color);
+  min-width: 7.5rem;
+}
+
+section .study-plan-content .back-button {
+  color: #fff;
+  background-color: #cbcbcb;
+  min-width: 7.5rem;
+}
+
+section .study-plan-content .approve-button {
+  color: #fff;
+  background-color: #42bc63;
+}
+
+section .study-plan-content .reject-button {
+  color: #fff;
+  background-color: #f84e4e;
+}
+section .study-plan-content button span fa-icon {
+  font-size: 1rem;
+  margin-right: 0.25rem;
+}
+
+section .study-plan-content .add-free-elective-course-area {
+  display: flex;
+  position: relative;
+  height: max-content;
+  margin-top: 2.5%;
+}
+section .study-plan-content .add-free-elective-course-area button {
+  margin-left: auto;
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  padding: 0 1.5rem !important;
+}
+
+section .study-plan-content .add-free-elective-course-area button span {
+  font-family: "sutregular";
+  font-size: 1.2rem;
+}
+
+section .study-plan-content .add-free-elective-course-area button span .material-icons {
+  font-size: 1.25rem;
+  vertical-align: middle;
+  margin: -0.25rem;
+  font-weight: bold;
+}
+
+section .study-plan-content .add-free-elective-course-area .add-free-course-button {
+  color: #fff;
+  background-color: var(--main-green-color);
+}
+
+.add-button {
+  font-size: 1.25rem;
+  font-family: "SUTBold";
+  display: table;
+  margin: 1rem auto;
+  cursor: pointer;
+}
+
+/* view  */
+
+.panel-view {
+  max-height: 15rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  background-color: var(--gray-2);
+  margin: 0.25rem 0;
+  padding: 1rem 0.5rem;
+  border-radius: 7px;
+  min-height: 100%;
+}
+.panel-view .id {
+  padding-left: 16px;
+  font-family: "sutBold";
+  font-size: calc(0.5rem + 0.25vw + 0.25vh);
+}
+
+.panel-view .name {
+  padding-left: 5px;
+  font-family: "sutBold";
+  font-size: calc(0.55rem + 0.25vw + 0.25vh);
+}
+
+.panel-view .name > span {
+  background-color: var(--gray);
+  color: var(--dark-gray);
+  border-radius: 10px;
+  padding: 0 0.75rem;
+  margin-left: 0.25rem;
+  margin-bottom: 0.15rem;
+  font-size: 0.7rem;
+  display: inline-block;
+}
+
+.breadcrumb-panel {
+  width: 100%;
+  font-family: "SUTBold";
+  font-size: 1.25rem;
+  text-align: center;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border-radius: 7px;
+}
+
+.approved-breadcrumb {
+  background-color: #ddf1dd;
+  color: #2ba62c;
+}
+
+.advised-breadcrumb {
+  background-color: #d0edfc;
+  color: #1eb2fc;
+}
+
+.pending-breadcrumb {
+  color: #ef9f00;
+  background-color: #faeed7;
+}
+
+.reject-breadcrumb {
+  background-color: #edbbbb;
+  color: #d91818;
+}

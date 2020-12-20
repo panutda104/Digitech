@@ -1,0 +1,58 @@
+<div class="course-dialog">
+  <div class="dialog-header">
+    <p>เพิ่มตัวเลือกวิชาเสรี</p>
+    <hr />
+  </div>
+
+  <!-- dropdown select career -->
+  <div class="dialog-body">
+    <div class="select-course">
+      <p>ค้นหาวิชา</p>
+      <mat-form-field floatLabel="never">
+        <mat-select [formControl]="courseCtrl" placeholder="เลือกอาชีพ" #singleSelect>
+          <mat-option class="">
+            <ngx-mat-select-search
+              [formControl]="courseFilterCtrl"
+              placeholderLabel="ค้นหา"
+              noEntriesFoundLabel="ไม่พบ"
+            ></ngx-mat-select-search>
+          </mat-option>
+          <mat-option *ngFor="let course of filteredCourses | async" [value]="course">
+            {{ getCourseId(course) + " " + getCourseName(course) }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button class="button-radius add-button" (click)="addCourseToList(courseCtrl.value)">เพิ่ม</button>
+    </div>
+
+    <!-- display course -->
+    <div class="course-list">
+      <ng-container *ngIf="courseList.length; else empty">
+        <mat-card *ngFor="let course of courseList">
+          <div class="content">
+            <div class="id">{{ getCourseId(course) }}</div>
+            <div class="name">
+              <p>{{ getCourseName(course) }}</p>
+              <div class="credit-area">
+                <span class="credit">{{ getCourseCredit(course) + " หน่วยกิต" }}</span>
+                <span class="trimester" *ngFor="let term of getCourseTrimester(course)">
+                  <ng-container *ngIf="term !== '0'"> {{ "ภาคการศึกษาที่ " + term }} </ng-container>
+                </span>
+              </div>
+            </div>
+          </div>
+          <span class="remove-icon delete-icon" (click)="deleteCourse(course)">
+            <mat-icon>clear</mat-icon>
+          </span>
+        </mat-card>
+      </ng-container>
+      <ng-template #empty><p>กรุณาเพิ่มวิชา</p> </ng-template>
+    </div>
+
+    <div class="button-area">
+      <button class="button-radius save-button" (click)="addCurricularCourses()">เพิ่มวิชาในแผน</button>
+      <button class="button-radius back-button" (click)="onNoClick()">ยกเลิก</button>
+    </div>
+  </div>
+</div>

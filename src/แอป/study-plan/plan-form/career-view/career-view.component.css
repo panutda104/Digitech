@@ -1,0 +1,443 @@
+::ng-deep body {
+  background: var(--main-blue-gd);
+}
+:host {
+  display: flex;
+  font-family: "sutRegular";
+  font-size: calc(0.25vmin + 0.25vmax + 10px);
+}
+
+section {
+  width: 100%;
+  margin-bottom: 2.5%;
+}
+
+section > .title {
+  font-family: "sutbold";
+  color: #292929;
+  text-shadow: 1px 2px 8px rgba(0, 0, 0, 0.1);
+  font-size: 2rem;
+  text-indent: 1vw;
+}
+.career-content {
+  background-color: #ffffff;
+  border-radius: 7px;
+  padding: 2.5%;
+  box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.content-align-center {
+  width: 100%;
+  display: table;
+  margin-bottom: 1.5rem;
+}
+
+section .study-plan-content {
+  background-color: #ffffff;
+  margin: 2.5% 5%;
+  padding: 2.5%;
+  box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.tree ul,
+.tree li {
+  list-style-type: none;
+}
+
+/*  ------------------ career tree -------------------- */
+
+.mat-tree-node {
+  width: 100%;
+  position: relative;
+  min-height: unset;
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+}
+
+.career-tab {
+  position: relative;
+  background-color: #f4f4f4;
+  width: calc(100% - (1vmax + 1vmin + 10px) - 1vw);
+  min-height: calc(1vmax + 1vmin + 50px);
+  height: fit-content;
+  border-radius: 7px;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+}
+.career-tab-full {
+  width: 100% !important;
+}
+
+.career-tab > .mat-checkbox {
+  margin-top: 0.75rem;
+  margin-left: 1.25rem;
+}
+
+::ng-deep .career-tab .mat-checkbox-checked .mat-checkbox-background,
+.career-tab .mat-checkbox-indetrimesterinate .mat-checkbox-background {
+  background-color: var(--main-green-color) !important;
+}
+
+::ng-deep .career-tab .mat-checkbox:not(.mat-checkbox-disabled) .mat-checkbox-ripple .mat-ripple-element {
+  background-color: var(--main-green-color) !important;
+}
+
+.career-tab > span {
+  width: 100%;
+  height: 100%;
+  padding: 0.75rem 1.25rem;
+}
+.career-tab p {
+  font-family: "sutbold";
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+  margin: 0;
+}
+.career-tab .menu {
+  position: absolute;
+  right: 0;
+  height: 100%;
+}
+.career-tab .menu button {
+  border: none;
+  background: none;
+  height: 100%;
+  color: #777777;
+}
+.career-tab .menu .material-icons {
+  font-size: calc(1vmax + 1vmin);
+  vertical-align: bottom;
+}
+
+.career-toggle {
+  position: absolute;
+  right: 2vw;
+  font-size: 1.25rem;
+  top: 35%;
+}
+.delete-career-button {
+  position: absolute;
+  right: 0;
+  font-size: 1.25rem;
+  border: unset;
+  background-color: #fccbcb;
+  color: #e9565f;
+  height: calc(1vmax + 1vmin + 1rem);
+  width: calc(1vmax + 1vmin + 1rem);
+  border-radius: 1000px;
+  cursor: pointer;
+}
+
+.mat-tree {
+  background: unset;
+}
+
+.career-content .material-icons {
+  font-size: calc(1vmax + 1.5vmin);
+  vertical-align: sub;
+}
+
+.career-content .mat-icon {
+  height: unset;
+  width: unset;
+}
+
+.tree {
+  /* margin-top: 2.5%; */
+}
+
+.tree li {
+  width: 100%;
+}
+.tree ul {
+  padding: 0;
+  width: calc(100% - (1vmax + 1vmin + 10px) - 1vw);
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #fcfcfc;
+  border-radius: 7px;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.tree-tab-full .tree ul {
+  width: 100% !important;
+}
+.tree-invisible {
+  transition: margin 0.5s;
+  margin: 0 !important;
+}
+.module-content {
+  /* font-family: "sutbold";
+  font-size: calc(1vmax + 1vmin); */
+  width: 33%;
+  min-width: 250px;
+  margin: calc(0.5% / 4);
+  padding: 0.5rem;
+  flex: unset !important;
+  overflow: unset !important;
+  word-wrap: unset;
+  align-items: stretch;
+}
+
+.module-content:first-child {
+  padding-right: 0px;
+}
+.module-content:last-child {
+  padding-left: 0px;
+}
+
+/* .module-content:first-child {
+  margin-left: 0px;
+}
+.module-content:last-child {
+  margin-right: 0px;
+} */
+
+.module-box {
+  width: 100%;
+  font-family: "sutbold";
+}
+
+.box-header {
+  text-align: center;
+  width: 100%;
+  font-size: 1.1rem;
+  line-height: 1.1rem;
+  padding: 0.5em;
+  border-radius: 7px;
+  background-color: #f4f4f4;
+}
+.box-body {
+  font-size: 1rem;
+  line-height: 1rem;
+}
+.box-content {
+  position: relative;
+  margin: 1rem 0.75rem 0.75rem 0.75rem;
+}
+.box-content .title {
+  padding: 0;
+  display: inline-block;
+}
+
+.box-content .not-essential-module {
+  color: var(--dark-gray-2);
+}
+.box-content .title p {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1rem;
+}
+
+.box-content .title p:first-child {
+  font-size: 1rem;
+  line-height: 1.25rem;
+}
+.box-content button {
+  font-size: 0.75rem;
+  border: 1px solid var(--main-red-color);
+  color: var(--main-red-color);
+  padding: 0.1rem 0.75rem;
+  background-color: transparent;
+}
+.box-content::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: #d8d8d8;
+  top: 100%;
+  left: 0;
+  margin: 1vh 0;
+}
+.box-content:last-child::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: #d8d8d8;
+  top: 100%;
+  left: 0;
+  margin: 1vh 0;
+  display: none;
+}
+
+/* ------------------ Select  ---------------------- */
+
+/* ::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
+    background-color: unset;
+  } */
+
+::ng-deep .select-career .mat-form-field-underline {
+  display: none;
+}
+::ng-deep .select-career .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  color: var(--main-green-color);
+}
+::ng-deep .select-career .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: var(--main-green-color);
+}
+
+::ng-deep .mat-select-search-inside-mat-option .mat-select-search-input {
+  font-size: 1.225rem;
+  font-family: "sutregular";
+}
+
+.mat-option,
+.mat-select,
+.mat-form-field {
+  font-size: 1.225rem;
+  font-family: "sutregular";
+}
+.select-career .mat-form-field {
+  width: 100%;
+  padding: 0.5rem 1.5rem;
+  border-radius: 100px;
+  background-color: #f8f8f8;
+}
+
+.select-career {
+  margin: 0 auto;
+  display: flex;
+  width: 60%;
+}
+.select-career .mat-form-field {
+  max-width: unset;
+  margin: unset;
+  display: inline-block;
+}
+
+.add-button {
+  font-family: "sutBold";
+  font-size: 1.25em;
+  background-color: var(--main-green-color);
+  color: #ffffff;
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.1);
+  /* padding: 0.25rem 1.5rem; */
+  height: initial;
+  width: 6rem;
+  margin: 0 1rem;
+  cursor: pointer;
+}
+.add-button:disabled {
+  color: gray;
+  background-color: #fafafa;
+  cursor: default;
+}
+
+::ng-deep .select-career .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+  padding-bottom: 0;
+}
+
+::ng-deep .select-career .mat-form-field-infix {
+  border-top: 0;
+}
+::ng-deep .select-career .mat-form-field-appearance-legacy .mat-form-field-infix {
+  padding: 0;
+}
+.select-career .mat-option {
+  height: 2em !important;
+}
+::ng-deep .select-career .mat-form-field-appearance-legacy .mat-form-field-label {
+  top: 0em;
+}
+::ng-deep .select-career .mat-form-field-label-wrapper {
+  top: 0em;
+  padding-top: 0em;
+}
+::ng-deep .mat-select-panel .mat-optgroup-label,
+.mat-select-panel .mat-option {
+  height: max-content;
+}
+
+::ng-deep .mat-option {
+  font-size: 1.25rem !important;
+  line-height: 2.5rem !important;
+  height: max-content !important;
+}
+/* ------------------ Mat panel  ---------------------- */
+
+.mat-expansion-panel-header {
+  font-family: "sutbold";
+  font-size: calc(1vmax + 1.25vmin);
+  line-height: calc(1vmax + 1vmin);
+}
+
+/* select field */
+.relative {
+  margin: unset;
+}
+
+/* --------- form control ----------- */
+.form-control {
+  /* display: block;
+    width: 100%; */
+  color: unset;
+  padding: 0;
+  font-size: unset;
+}
+
+/* ---------- progress bar ---------- */
+
+.career-progress-bar .progress,
+.career-progress-bar .progress .progress-bar {
+  height: calc(0.25vmax + 0.25vmin + 1.5px);
+  border-radius: 10px;
+}
+.career-progress-bar .progress {
+  background-color: var(--dark-gray-4);
+}
+.career-progress-bar .progress .progress-bar {
+  background-color: var(--main-green-color);
+}
+
+/* ::ng-deep .mat-progress-bar-buffer {
+  background-color: var(--dark-gray-4) !important;
+}
+::ng-deep.mat-progress-bar-fill::after {
+  background-color: var(--main-green-color) !important;
+  border-radius: 10px;
+}
+
+::ng-deep .mat-progress-bar,
+.mat-progress-bar-buffer {
+  border-radius: 10px;
+}
+
+::ng-deep .mat-progress-bar {
+  height: calc(0.25vmax + 0.25vmin + 2.5px) !important;
+} */
+/* 
+::ng-deep .mat-progress-bar .mat-progress-bar-element,
+.mat-progress-bar .mat-progress-bar-fill::after {
+  border-radius: 10px !important;
+}
+
+.mat-progress-bar .mat-progress-bar-fill::after {
+  animation: none;
+  content: '';
+  display: inline-block;
+  left: 0;
+  border-radius: 10px;
+} */
+
+/* info career-progress-bar */
+
+.career-progress-bar {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.career-progress-bar > div {
+  width: 300px;
+  margin: 0.25rem 1rem 0 0;
+}
+
+.career-progress-bar > div > p {
+  padding: 0;
+  color: #434343;
+  font-size: 0.85rem;
+  line-height: 1rem;
+}

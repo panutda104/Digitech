@@ -1,0 +1,16 @@
+<div class="edit-request-dialog">
+  <div class="title">ขอแก้ไขแผนอนุมัติ</div>
+  <div class="comment-area">
+    <p>เนื่องจาก</p>
+    <textarea [(ngModel)]="requestText" name="requestText" placeholder="..."></textarea>
+  </div>
+  <div class="button-area">
+    <button class="button-radius request-button" (click)="isRequest()">
+      <span> <fa-icon [icon]="faShare"></fa-icon> ยืนยันขอแก้ไข </span>
+    </button>
+
+    <button (click)="onNoClick()" class="button-radius cancel-button">
+      <span> ยกเลิก </span>
+    </button>
+  </div>
+</div>

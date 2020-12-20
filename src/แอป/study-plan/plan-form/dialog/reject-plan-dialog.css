@@ -1,0 +1,153 @@
+::ng-deep .cdk-global-overlay-wrapper {
+  /* display: flex;
+  position: absolute; */
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.4);
+}
+::ng-deep .cdk-overlay-pane {
+  position: absolute !important;
+  top: 20% !important;
+  min-width: 40%;
+  width: max-content;
+  /* margin-top: -10rem; */
+}
+::ng-deep .cdk-global-scrollblock {
+  position: absolute;
+  overflow-y: unset;
+}
+
+/**
+ * ----------------------------------------
+ * approved
+ * ----------------------------------------
+ */
+
+.checkmark .mat-icon {
+  font-size: 7.5rem;
+  color: #42bc63;
+}
+
+.checkmark > p {
+  font-family: "SUTregular";
+  font-size: 2rem;
+}
+
+/**
+ * ----------------------------------------
+ * reject
+ * ----------------------------------------
+ */
+
+.reject {
+  padding: 2.5% 15%;
+}
+
+.reject .title {
+  font-family: "SUTbold";
+  font-size: 2rem;
+}
+
+.reject .name {
+  font-family: "SUTregular";
+  font-size: 1.5rem;
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  padding: 0.25rem;
+  margin: 1rem 0;
+}
+
+.reject .comment-area {
+}
+
+.reject .comment-area > p {
+  font-family: "SUTregular";
+  font-size: 1.25rem;
+  text-align: left;
+  margin: 0;
+}
+
+.reject .comment-area > textarea {
+  font-family: "SUTregular";
+  font-size: 1.25rem;
+  min-height: 7.5rem;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  border: 2px solid #c7c7c7;
+  border-radius: 5px;
+  background-color: #f4f4f4;
+}
+
+::-webkit-resizer {
+  display: none;
+}
+
+.reject .button-area {
+  display: inline-table;
+  margin: 0.5rem auto;
+}
+
+.reject button {
+  vertical-align: sub;
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  padding: 0.15rem 1.5rem !important;
+  margin: 0.5rem;
+  font-family: "sutbold";
+  font-size: 1.25rem;
+}
+
+.reject .confirm-button {
+  color: #fff;
+  background-color: #42bc63;
+}
+
+.reject .notApprove-button {
+  color: #fff;
+  background-color: #f84e4e;
+}
+
+.reject .adjust-button {
+  color: #fff;
+  background-color: #f7bd51;
+}
+
+.reject .cancel-button {
+  color: #fff;
+  background-color: #cbcbcb;
+}
+
+.reject button span fa-icon {
+  font-size: 1rem;
+  margin-right: 0.25rem;
+}
+
+/**
+ * ----------------------------------------
+ * animation slide-bottom
+ * ----------------------------------------
+ */
+@-webkit-keyframes slide-bottom {
+  0% {
+    -webkit-transform: translateY(-20px);
+    transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@keyframes slide-bottom {
+  0% {
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.slide-bottom {
+  -webkit-animation: slide-bottom 0.25s both;
+  animation: slide-bottom 0.25s both;
+}

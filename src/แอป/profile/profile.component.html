@@ -1,0 +1,214 @@
+<app-sidebar></app-sidebar>
+<section>
+  <div class="header">ข้อมูลผู้ใช้</div>
+  <div class="content">
+    <div class="section-1">
+      <p>ข้อมูลส่วนตัว</p>
+      <hr />
+      <div class="form-content">
+        <form [formGroup]="accountForm" class="mt-2">
+          <div class="row">
+            <div class="col-2 name-field">{{ isStudnt ? "รหัสนักศึกษา" : "รหัสผู้ใช้งาน" }}</div>
+            <div class="col-10 input-field">
+              <mat-form-field floatLabel="never">
+                <input matInput placeholder="Input" formControlName="user_id" [readonly]="true" />
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-2 name-field">ชื่อ-นามสกุล</div>
+            <div class="col-10 input-field">
+              <div class="row">
+                <div class="col-6 input-field">
+                  <mat-form-field floatLabel="never">
+                    <input matInput placeholder="Input" formControlName="user_firstname" [readonly]="true" />
+                  </mat-form-field>
+                </div>
+                <div class="col-6 input-field">
+                  <mat-form-field floatLabel="never">
+                    <input matInput placeholder="Input" formControlName="user_lastname" [readonly]="true" />
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-2 name-field">หลักสูตรที่สังกัด</div>
+            <div class="col-10 input-field">
+              <mat-form-field floatLabel="never">
+                <input matInput placeholder="Input" [value]="syllabus_id" [readonly]="true" />
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div *ngIf="isStudnt" class="row">
+            <div class="col-2 name-field">อาจารย์ที่ปรึกษา</div>
+            <div class="col-10 input-field">
+              <mat-form-field floatLabel="never">
+                <input matInput placeholder="Input" [value]="adviserName" [readonly]="true" />
+              </mat-form-field>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="section-2">
+      <div style="display: flex">
+        <p>ข้อมูลทั่วไป</p>
+        <button *ngIf="!editGeneralForm" (click)="onEditGeneralForm()" class="button-radius edit-button">
+          <mat-icon>create</mat-icon> แก้ไข
+        </button>
+      </div>
+
+      <hr />
+      <div class="form-content">
+        <form [formGroup]="accountForm" class="mt-2">
+          <div class="row">
+            <div class="col-2 name-field">E-mail</div>
+            <div class="col-10 input-field">
+              <mat-form-field floatLabel="never" [appearance]="editGeneralForm ? 'outline' : 'legacy'">
+                <input matInput placeholder="E-mail" formControlName="user_email" [readonly]="!editGeneralForm" />
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-2 name-field">โทรศัพท์</div>
+            <div class="col-10 input-field">
+              <mat-form-field floatLabel="never" [appearance]="editGeneralForm ? 'outline' : 'legacy'">
+                <input matInput placeholder="โทรศัพท์" formControlName="user_tel" [readonly]="!editGeneralForm" />
+              </mat-form-field>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="button-area" *ngIf="editGeneralForm">
+        <button (click)="onSubmitGeneralForm()" class="button-radius save-button">บันทึก</button>
+        <button (click)="setDefaultGeneralForm()" class="button-radius cancel-button">ยกเลิก</button>
+      </div>
+    </div>
+
+    <div class="section-3">
+      <div style="display: flex">
+        <p>Password</p>
+        <button *ngIf="!editPasswordForm" (click)="onEditPasswordForm()" class="button-radius edit-button">
+          <mat-icon>create</mat-icon> แก้ไข
+        </button>
+      </div>
+
+      <hr />
+      <div class="form-content">
+        <form [formGroup]="passwordForm" class="mt-2">
+          <div class="row">
+            <div class="col-2 name-field">Password</div>
+            <div class="col-10 input-field">
+              <ng-container *ngIf="editPasswordForm; then editPassword; else viewPassword"> </ng-container>
+
+              <!------------ Password View ------------>
+              <ng-template #viewPassword>
+                <mat-form-field floatLabel="never" appearance="none" style="margin-top: -1.25rem">
+                  <input matInput type="password" value="password" />
+                </mat-form-field>
+              </ng-template>
+
+              <!------------ Password Editor  ------------>
+              <ng-template #editPassword>
+                <div class="row">
+                  <div class="col-12">
+                    <mat-form-field appearance="outline">
+                      <mat-label>Old Password</mat-label>
+                      <input matInput type="password" formControlName="old_password" />
+                    </mat-form-field>
+                  </div>
+                  <div class="col-12">
+                    <mat-form-field appearance="outline">
+                      <mat-label>New Password</mat-label>
+                      <input matInput #new_password_input="matInput" type="password" formControlName="new_password" />
+                    </mat-form-field>
+                    <div
+                      *ngIf="new_password_input.focused || passwordForm.get('new_password').touched"
+                      class="new-password-check"
+                    >
+                      <p>Password must:</p>
+                      <p
+                        [ngClass]="
+                          new_password.value
+                            ? new_password.value.length < 8
+                              ? 'invalid-text'
+                              : 'valid-text'
+                            : passwordForm.get('new_password').touched
+                            ? 'invalid-text'
+                            : ''
+                        "
+                      >
+                        Have at least 8 characters
+                      </p>
+                      <p
+                        [ngClass]="
+                          new_password.value
+                            ? isLetter()
+                              ? 'valid-text'
+                              : 'invalid-text'
+                            : passwordForm.get('new_password').touched
+                            ? 'invalid-text'
+                            : ''
+                        "
+                      >
+                        Have at least 1 letter (a, b, c...)
+                      </p>
+                      <p
+                        [ngClass]="
+                          new_password.value
+                            ? isDigit()
+                              ? 'valid-text'
+                              : 'invalid-text'
+                            : passwordForm.get('new_password').touched
+                            ? 'invalid-text'
+                            : ''
+                        "
+                      >
+                        Have at least 1 number (1, 2, 3...)
+                      </p>
+
+                      <p
+                        [ngClass]="
+                          new_password.value
+                            ? isLowerAndUpperCase()
+                              ? 'valid-text'
+                              : 'invalid-text'
+                            : passwordForm.get('new_password').touched
+                            ? 'invalid-text'
+                            : ''
+                        "
+                      >
+                        Include both uppercase and lowercase characters
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <mat-form-field appearance="outline">
+                      <mat-label>Confirm Password</mat-label>
+                      <input matInput type="password" formControlName="confirm_password" />
+                      <mat-error *ngIf="confirm_password.value && confirm_password.invalid"
+                        >Please make sure your passwords match</mat-error
+                      >
+                    </mat-form-field>
+                  </div>
+                </div>
+              </ng-template>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="button-area" *ngIf="editPasswordForm">
+        <button (click)="onSubmitPasswordForm()" class="button-radius save-button">บันทึก</button>
+        <button (click)="setDefaultPasswordForm()" class="button-radius cancel-button">ยกเลิก</button>
+      </div>
+    </div>
+  </div>
+</section>

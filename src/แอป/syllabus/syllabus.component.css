@@ -1,0 +1,502 @@
+:host {
+  font-family: "SUTRegular";
+  font-size: calc(1vmax + 0.5vmin);
+}
+/* <!------------------------- BANNER SECTION -----------------------> */
+
+.banner-bg {
+  padding-top: 5rem;
+  background: var(--main-blue-gd);
+  width: 100vw;
+  min-height: max-content;
+}
+
+.banner-container {
+  padding: 2rem 10%;
+  /* min-height: calc(35vmax + 5vmin - var(--navbar-height)); */
+}
+
+.banner-container .banner-header {
+  margin-top: 2.5rem;
+  font-family: "sutbold";
+  font-size: 2.5rem;
+  color: #ffffff;
+  text-shadow: 1px 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.banner-container .banner-content {
+  height: fit-content;
+  padding: 1vh 1vw;
+  display: flex;
+}
+
+.banner-container .banner-content span {
+  border-left: 0.5rem solid var(--main-red-color);
+}
+
+.banner-container .banner-content p {
+  font-family: "sutRegular";
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  color: #ffffff;
+  padding: 0.5vw 1vw;
+  margin: 0;
+}
+
+.banner-container .banner-cover {
+  width: 90%;
+  text-align: right;
+}
+
+/* <!------------------------- CAREER SECTION -----------------------> */
+
+.career-type-container {
+  margin: 7.5vh auto;
+}
+
+.career-type-container .header {
+  font-family: "sutbold";
+  font-size: calc(2vmax + 1vmin);
+  line-height: calc(2vmax + 1vmin);
+  text-align: center;
+  color: var(--main-blue-color);
+  text-shadow: 1px 5px 8px rgba(0, 0, 0, 0.1);
+}
+
+.career-type-container .career-type-body {
+  padding: 5vh 15vw;
+}
+.grid-row {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  grid-auto-rows: 1fr;
+}
+
+.grid-item {
+  flex-basis: 33.33%;
+  display: grid;
+  -ms-flex: auto;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.card-bg {
+  background-color: #fcfcfc;
+  box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.1);
+  padding: 5% 7.5%;
+  margin: 5%;
+}
+
+.card-icon {
+  /* width: 30px; */
+  width: 1.5rem;
+  margin: 5% auto;
+  display: block;
+}
+
+.card-title {
+  font-family: "sutbold";
+  font-size: calc(1vmax + 0.75vmin);
+  line-height: calc(1vmax + 1vmin);
+  text-transform: uppercase;
+  text-align: center;
+  margin: 1vh 0;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 10% 0;
+}
+ul li .col-2 {
+  content: url("/assets/images/Icon-arrow.svg");
+  margin: 2% 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: fit-content;
+}
+ul li {
+  font-family: "sutbold";
+  font-size: calc(1vmax + 0.25vmin);
+  line-height: calc(1vmax + 0.5vmin);
+  margin: 4%;
+}
+ul li:after {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 100%;
+  background: #a3a3a3;
+  margin-top: 2%;
+}
+
+ul li a {
+  color: var(--main-black-color);
+}
+
+ul li a:hover {
+  color: #209290;
+}
+
+/* ------------------------ Moblie ------------------------ */
+@media only screen and (min-width: 320px) and (max-height: 812px) and (orientation: portrait) {
+  .banner-bg {
+    padding-top: 4rem;
+    height: 100vh;
+  }
+
+  .banner-container {
+    padding: 0 7.5%;
+  }
+
+  .banner-container .banner-header {
+    font-size: calc(1rem + 4vw);
+    margin-top: 1rem;
+  }
+
+  .banner-container .banner-content p {
+    font-size: 1.1rem;
+    line-height: 1.25rem;
+    padding: 1vw 3vw;
+  }
+
+  .banner-container .banner-cover {
+    margin: 3vh auto;
+    display: block;
+    height: 45vh;
+  }
+  .banner-container .banner-content span {
+    border-left: 0.35rem solid var(--main-red-color);
+  }
+
+  .career-type-container .header {
+    font-size: 1.75rem;
+    line-height: 1.75rem;
+  }
+
+  .career-type-container .career-type-body {
+    padding: 3vh 7.5vw;
+  }
+  .grid-item {
+    flex-basis: 100%;
+  }
+
+  .card-bg {
+    padding: 5%;
+    margin: 5%;
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+  }
+
+  ul li {
+    font-size: 1rem;
+    line-height: 1.25rem;
+    padding: 0 5%;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 811px) and (orientation: landscape) {
+  .banner-bg {
+    padding-top: 4rem;
+    height: 100vh;
+  }
+  .banner-container {
+    padding: 2.5vw 7.5vw;
+  }
+
+  .banner-container .banner-header {
+    font-size: calc(1rem + 2.5vw);
+  }
+
+  .banner-container .banner-content p {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    padding: 1vw 2vw;
+  }
+  .banner-container .banner-cover {
+    width: 100%;
+    margin: 3vh auto;
+  }
+
+  .banner-container .banner-content span {
+    border-left: 0.35rem solid var(--main-red-color);
+  }
+
+  .career-type-container .header {
+    font-size: calc(2vmax + 3vmin);
+    line-height: calc(2vmax + 3vmin);
+  }
+
+  .grid-item {
+    flex-basis: 50%;
+  }
+
+  .card-title {
+    font-size: calc(1.7vmax + 1vmin);
+    line-height: calc(2vmax + 1vmin);
+  }
+  ul li {
+    font-size: calc(1.5vmax + 1vmin);
+    line-height: calc(1.7vmax + 1vmin);
+    padding: 0 5%;
+  }
+  ul li .col-2 {
+    padding: 1px !important;
+  }
+}
+
+/* ------------------------ Moblie ONLY X portrait ------------------------ */
+@media only screen and (width: 375px) and (height: 812px) and (orientation: portrait) {
+}
+
+/* ------------------------ Moblie ONLY X landscape ------------------------ */
+@media only screen and (max-width: 812px) and (orientation: landscape) {
+  .banner-bg {
+    height: 100vh;
+    padding-top: 5rem;
+  }
+  .banner-container {
+    padding: 0 7.5%;
+  }
+  .banner-container .banner-header {
+    font-size: calc(1rem + 2.5vw);
+  }
+  .banner-container .banner-content p {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    padding: 1vw 2vw;
+  }
+  .banner-container .banner-cover {
+    width: calc(90% + 2vmin);
+    display: block;
+    margin: 0 auto;
+  }
+  .career-type-container .header {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+
+  .career-type-container .career-type-body {
+    padding: 5vh 7.5%;
+  }
+  .grid-item {
+    flex-basis: 33.33%;
+  }
+
+  .card-bg {
+    padding: 5% 7.5%;
+  }
+
+  .card-title {
+    font-size: 0.85rem;
+    line-height: 0.85rem;
+  }
+  .card-icon {
+    width: 1.5rem;
+  }
+  ul li {
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+    margin: 4%;
+    padding: 0;
+  }
+
+  ul li .col-2 {
+    padding: 1px !important;
+  }
+}
+
+/* ------------------------ Ipad ------------------------ */
+@media only screen and (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
+  .banner-bg {
+    padding-top: 5rem;
+    height: max-content;
+  }
+
+  .banner-container {
+    padding-top: 0rem;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 2rem;
+  }
+  .banner-container .banner-header {
+    font-size: 2rem;
+    line-height: 2rem;
+    margin-top: 1rem;
+  }
+
+  .banner-container .banner-content span {
+    border-left: 0.35rem solid var(--main-red-color);
+  }
+
+  .banner-container .banner-content p {
+    font-size: 1.1rem;
+    line-height: 1.25rem;
+    padding: 0.5vw 1vw;
+  }
+
+  .banner-container .banner-cover {
+    width: 100%;
+  }
+
+  .career-type-container {
+    margin: 5vh auto;
+  }
+
+  .career-type-container .career-type-body {
+    padding: 2rem 10%;
+  }
+  .card-icon {
+    width: 1.5rem;
+  }
+
+  .card-title {
+    font-size: 1rem;
+    line-height: 1rem;
+  }
+
+  ul li .col-2 {
+    padding: 1px !important;
+  }
+}
+@media only screen and (min-width: 1024px) and (orientation: landscape) {
+  .banner-bg {
+    padding-top: 5rem;
+    height: max-content;
+  }
+  .banner-container {
+    padding-top: 0rem;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 2rem;
+  }
+  .banner-container .banner-header {
+    font-size: 2rem;
+    line-height: 2rem;
+    margin-top: 4rem;
+  }
+  .banner-container .banner-content p {
+    font-size: calc(1.5vmax + 1vmin);
+    line-height: calc(1.5vmax + 1.5vmin);
+    padding: 1vw 2vw;
+  }
+  .banner-container .banner-cover {
+    width: 80%;
+    display: block;
+    margin: 1vh auto;
+  }
+  .career-type-container .header {
+    font-size: calc(2vmax + 1vmin);
+    line-height: calc(2vmax + 1vmin);
+  }
+
+  .career-type-container .career-type-body {
+    padding: 5vh 10%;
+  }
+  .grid-item {
+    flex-basis: 33.33%;
+  }
+
+  .card-bg {
+    padding: 5% 7.5%;
+  }
+  .card-icon {
+    width: 1.5rem;
+  }
+
+  .card-title {
+    font-size: 1rem;
+    line-height: 1rem;
+  }
+
+  ul li {
+    font-size: 0.85rem;
+    line-height: 1rem;
+    margin: 4%;
+    padding: 0;
+  }
+
+  ul li .col-2 {
+    padding: 1px !important;
+  }
+}
+
+/* ------------------------ Desktops ------------------------ */
+
+@media only screen and (min-width: 1025px) {
+  .banner-bg {
+    padding-top: 7.5rem;
+    height: max-content;
+  }
+
+  .banner-container {
+    padding-top: 1rem;
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-bottom: 5rem;
+  }
+
+  .banner-container .banner-header {
+    padding-top: 1rem;
+    font-size: calc(2.5vw + 2rem);
+    line-height: 6rem;
+  }
+
+  .banner-container .banner-content {
+    padding: 1vh 1vw;
+  }
+
+  .banner-container .banner-content p {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    padding: 0.5vw 1vw;
+  }
+
+  .banner-container .banner-cover {
+    width: 100%;
+    margin: 0;
+    display: initial;
+  }
+  .banner-container .banner-content span {
+    border-left: 0.5rem solid var(--main-red-color);
+  }
+
+  .career-type-container .header {
+    font-size: 3rem;
+  }
+
+  .career-type-container .career-type-body {
+    padding: 2.5rem 15%;
+  }
+  .grid-item {
+    flex-basis: 33.33%;
+  }
+
+  .card-bg {
+    padding: 5% 7.5%;
+  }
+
+  .card-icon {
+    width: 2rem;
+  }
+
+  .card-title {
+    font-size: 1.75rem;
+    line-height: 2rem;
+  }
+
+  ul li {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    margin: 4%;
+    padding: 0;
+  }
+
+  ul li .col-2 {
+    padding: 0 !important;
+  }
+}

@@ -1,0 +1,82 @@
+::ng-deep .cdk-global-overlay-wrapper {
+  /* display: flex;
+      position: absolute; */
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.4);
+}
+::ng-deep .cdk-overlay-pane {
+  min-width: 40%;
+  width: max-content;
+}
+
+:host {
+  font-family: "sutRegular";
+  font-size: calc(0.25vmin + 0.25vmax + 10px);
+  color: var(--main-black-color);
+}
+
+.edit-request-dialog {
+  padding: 2.5% 15%;
+}
+
+.edit-request-dialog .title {
+  font-family: "SUTBold";
+  font-size: 2rem;
+  width: 100%;
+  text-align: center;
+}
+.edit-request-dialog .comment-area {
+  margin-top: 1rem;
+}
+
+.edit-request-dialog .comment-area > p {
+  font-family: "SUTregular";
+  font-size: 1.25rem;
+  text-align: left;
+  margin: 0;
+}
+
+.edit-request-dialog .comment-area > textarea {
+  font-family: "SUTregular";
+  font-size: 1.25rem;
+  min-height: 7.5rem;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  border: 2px solid #c7c7c7;
+  border-radius: 5px;
+  background-color: #f4f4f4;
+}
+
+::-webkit-resizer {
+  display: none;
+}
+
+.edit-request-dialog .button-area {
+  display: table;
+  margin: 0.5rem auto;
+}
+
+.edit-request-dialog button {
+  vertical-align: sub;
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  padding: 0.15rem 1.5rem !important;
+  margin: 0.5rem;
+  font-family: "sutbold";
+  font-size: 1.25rem;
+}
+
+.edit-request-dialog .request-button {
+  color: #fff;
+  background-color: #f7bd51;
+}
+
+.edit-request-dialog .cancel-button {
+  color: #fff;
+  background-color: #cbcbcb;
+}
+
+.edit-request-dialog button span fa-icon {
+  font-size: 1rem;
+  margin-right: 0.25rem;
+}

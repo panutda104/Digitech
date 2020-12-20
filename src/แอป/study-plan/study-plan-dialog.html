@@ -1,0 +1,8 @@
+<section class="text-center">
+  <!-- <h2>ลบ</h2> -->
+  <div mat-dialog-content>{{data.text + ' ' + data.id}}</div>
+  <div mat-dialog-actions>
+    <button class="button-radius accept-button" (click)="onConfirm()" mat-button>ยืนยัน</button>
+    <button class="button-radius cancel-button" mat-button (click)="onNoClick()">ยกเลิก</button>
+  </div>
+</section>

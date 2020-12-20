@@ -1,0 +1,209 @@
+/* each tab */
+
+.tab-section .header-menu {
+  position: relative;
+  display: flex;
+  margin: 2.5rem 0 0 0;
+}
+.tab-section span {
+  margin-left: 1rem;
+}
+
+.tab-section .header-menu .material-icons {
+  font-size: 1rem;
+  height: 1.25rem;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+  color: #777777;
+}
+
+::ng-deep .tab-section .header-menu .mat-form-field {
+  font-family: "sutregular";
+  width: 100%;
+}
+::ng-deep .tab-section .header-menu .mat-form-field-infix {
+  border-top: 1em;
+}
+
+/* ------ filter ------- */
+
+.tab-section .header-menu .filter-input {
+  margin-left: auto;
+  width: 30%;
+}
+
+::ng-deep .tab-section .filter-input .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: var(--main-green-color) !important;
+}
+
+::ng-deep .tab-section .filter-input .mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: var(--main-green-color) !important;
+}
+
+::ng-deep .tab-section .filter-input .mat-form-field-appearance-legacy .mat-form-field-underline {
+  bottom: 0;
+}
+::ng-deep .tab-section .filter-input .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+  padding: 0;
+}
+
+/* ------ sort ------- */
+
+.tab-section .mat-option {
+  font-family: "sutregular";
+}
+
+.tab-section .mat-select {
+  font-family: "sutregular";
+}
+
+::ng-deep .tab-section .sort-select .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+  padding: 0;
+}
+
+.tab-section .header-menu .sort-select {
+  width: 15%;
+}
+
+::ng-deep .tab-section .header-menu .sort-select .mat-form-field-underline {
+  display: none;
+}
+::ng-deep .tab-section .header-menu .sort-select .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  color: var(--main-green-color);
+}
+::ng-deep .tab-section .header-menu .sort-select .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: var(--main-green-color);
+}
+::ng-deep .sort-select .mat-select,
+.sort-select .mat-option {
+  font-size: 1rem;
+}
+
+::ng-deep .tab-section .header-menu .sort-select .mat-form-field {
+  width: 100%;
+  padding: 0rem 1rem;
+  border-radius: 100px;
+  background-color: #efefef;
+}
+
+/* table */
+
+.table-container {
+  margin: 1rem 0;
+  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.025), 0px 8px 10px 1px rgba(0, 0, 0, 0.05), 0px 3px 14px 2px rgba(0, 0, 0, 0.025);
+}
+
+table {
+  width: 100%;
+  font-family: "sutregular";
+  cursor: pointer;
+}
+.mat-cell:focus,
+tr.mat-row:focus {
+  outline: none;
+  box-shadow: none;
+}
+::ng-deep thead :hover {
+  cursor: default !important;
+  background-color: white !important;
+}
+.mat-header-cell {
+  font-family: "sutBold";
+  font-size: 1rem;
+  height: 2rem;
+}
+.mat-cell,
+.mat-footer-cell {
+  font-size: 1rem;
+}
+tr.mat-header-row {
+  height: 3rem !important;
+}
+tr.mat-row {
+  height: 3rem !important;
+}
+.mat-paginator {
+  padding-top: 1rem;
+}
+.mat-cell .material-icons {
+  font-size: 1rem;
+  height: 1rem;
+  vertical-align: middle;
+}
+
+.mat-cell p {
+  margin: 0;
+  line-height: 1rem;
+}
+
+.mat-cell p:last-child {
+  font-size: 0.85rem;
+  color: var(--dark-gray);
+}
+.mat-column-order.mat-column-student_id {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 7.5% !important;
+  width: 7.5% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.mat-column-career_1,
+.mat-column-career_2,
+.mat-column-career_3,
+.mat-column-button {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 12.5% !important;
+  width: 12.5% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.mat-column-student_name {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 20% !important;
+  width: 20% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+/* button */
+
+.approve-button {
+  color: #fff;
+  background-color: #42bc63;
+  padding: 0 1rem !important;
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+button span fa-icon {
+  font-size: 0.75rem;
+  margin-right: 0.25rem;
+}

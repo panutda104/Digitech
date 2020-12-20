@@ -1,0 +1,862 @@
+<div style="width: 25%">
+  <!-- ======================  LEFT MENU  ====================== -->
+  <app-sidebar></app-sidebar>
+  <!-- ===========  LEFT ELEMENT [ CAREER PROGRESS ]  ========== -->
+  <div class="sticky-side">
+    <!-- หน่วยกิต -->
+    <div *ngIf="!isObjectEmpty(summaryCredit)" class="credit-total">
+      <div class="header">จำนวนหน่วยกิต</div>
+      <div class="body" *ngFor="let item of this.credit | keyvalue">
+        <div
+          [ngClass]="{
+            'credit-warnning': calCompareCredit(
+              summaryCredit[item.key].summary_major_credit,
+              summaryCredit[item.key].major_credit
+            )
+          }"
+        >
+          <p>{{ item.key }}</p>
+          <p>
+            {{ summaryCredit[item.key].summary_major_credit + "/" + summaryCredit[item.key].major_credit }}
+            หน่วยกิต
+          </p>
+        </div>
+        <hr />
+
+        <div
+          *ngFor="let unit of item.value | keyvalue"
+          [ngClass]="{ 'credit-warnning': calCompareCredit(unit.value.summary_credit, unit.value.credit) }"
+        >
+          <p>{{ unit.value.type_of_course_name }}</p>
+          <p>{{ unit.value.summary_credit + "/" + unit.value.credit }}</p>
+        </div>
+      </div>
+      <div class="footer">
+        จำนวนรวม
+        <span [ngClass]="{ 'credit-warnning': !creditValidate }">{{
+          totalCredit.total_current_credit + "/" + totalCredit.total_major_credit
+        }}</span>
+        หน่วยกิต
+      </div>
+    </div>
+    <!-- อาชีพที่เลือก -->
+    <div class="other-career" *ngIf="isTeacher()">
+      <div class="header">อาชีพที่นักศึกษาเลือก</div>
+      <ng-container *ngIf="study_plan_career">
+        <ng-container *ngFor="let career of study_plan_career | keyvalue; let i = index">
+          <div class="career-progress-bar box-shadow shoulded-career">
+            <div class="order">
+              <div class="circle">
+                <h3>{{ i + 1 }}</h3>
+              </div>
+            </div>
+            <div class="content">
+              <p>{{ career.value.achieve_percent + "% ของชุดวิชาอาชีพ" }}</p>
+              <p>{{ career.value.career_name_en }}</p>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" [ngStyle]="getProgrssBarStyle(career.value.achieve_percent)"></div>
+              </div>
+            </div>
+          </div> </ng-container
+      ></ng-container>
+    </div>
+    <!-- อาชีพอื่นๆ -->
+    <div class="other-career" *ngIf="otherCareer">
+      <div class="header">อาชีพที่น่าสนใจ</div>
+      <ng-container *ngFor="let career of otherCareer; let i = index">
+        <div *ngIf="i < 3" class="career-progress-bar">
+          <p>{{ career.career_name_en }}</p>
+          <p>{{ career.achieve_percent + "% ของชุดวิชาอาชีพ" }}</p>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" [ngStyle]="getProgrssBarStyle(career.achieve_percent)"></div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+
+    <!-- comment -->
+    <div class="comment-area" *ngIf="programForm.value.comment">
+      <div class="header">ความคิดเห็น</div>
+      <div class="comment">{{ programForm.value.comment }}</div>
+      <button class="button-radius">
+        <span> <fa-icon [icon]="faInfoCircle"></fa-icon> ดูแผนการเรียนปรับปรุง </span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div (click)="scrollToTop()" class="scroll-to-top" *ngIf="pageYoffset > 0">
+    <fa-icon [icon]="faAngleUp"></fa-icon> scrollToTop
+  </div>
+  <div class="header">แผนการเรียน</div>
+  <div class="plan-container">
+    <app-career-view
+      *ngIf="isStudent()"
+      [coursePicked]="coursePicked"
+      [allCareer]="allCareer"
+      [pickedCareerFormPlan]="pickedCareerFormPlan"
+      [availableToEditStudyPlan]="id && !availableToEditStudyPlan"
+      (careerUpdated)="getCareerPicked($event)"
+      (defaultCareerIndex)="onDefaultModuleByCareer($event)"
+    ></app-career-view>
+    <ng-container *ngIf="studyPlan && courseOption && moduleParent">
+      <div class="title">
+        <div class="issue">แผนการเรียน</div>
+        <div class="button-area" *ngIf="isStudent()">
+          <button
+            *ngIf="id && !availableToEditStudyPlan && isAvailableToEdit()"
+            (click)="changeIsEditStudyPlan()"
+            class="button-radius edit-button"
+          >
+            <span> <fa-icon [icon]="faPen"></fa-icon> แก้ไข </span>
+          </button>
+
+          <button *ngIf="!id || availableToEditStudyPlan" class="button-radius save-button" (click)="onSaveProgram()">
+            <span> บันทึก </span>
+          </button>
+          <button *ngIf="availableToEditStudyPlan" class="button-radius back-button" (click)="changeIsEditStudyPlan()">
+            <span> ยกเลิกการแก้ไข </span>
+          </button>
+          <button
+            *ngIf="isAvailableToSendApprove() && !availableToEditStudyPlan"
+            (click)="sendApproveStudyPlan()"
+            class="button-radius approve-button"
+          >
+            <span> <fa-icon [icon]="faCheckCircle"></fa-icon> ส่งอนุมัติ </span>
+          </button>
+
+          <button *ngIf="isAvailableToCancel()" class="button-radius cancel-button">
+            <span> <fa-icon [icon]="faTimesCircle"></fa-icon> ยกเลิกขออนุมัติ </span>
+          </button>
+          <button *ngIf="isAvailableToModifyRequest()" class="button-radius request-button" (click)="onEditRequest()">
+            <span> <fa-icon [icon]="faShare"></fa-icon> ขอแก้ไขแผน </span>
+          </button>
+          <button *ngIf="isAvailableToDelete()" (click)="onDeleteStudyPlan()" class="button-radius remove-button">
+            <span> <fa-icon [icon]="faTrash"></fa-icon> ลบแผน </span>
+          </button>
+        </div>
+      </div>
+
+      <div class="study-plan-content">
+        <div *ngIf="!isDraft() && isStudent()" class=" {{ 'breadcrumb-panel ' + getPlanStatusColorStyle() }}">
+          {{ getPlanStatusText() }}
+        </div>
+
+        <!---------------------------------------->
+        <!-------------- EDIT PLAN --------------->
+        <!---------------------------------------->
+
+        <ng-container *ngIf="availableToEditStudyPlan || id == null; else isViewStudyPlan">
+          <!------------  config info section ------------>
+          <div class="study-plan-info">
+            <form [formGroup]="programForm">
+              <!------------  name field ------------>
+              <div class="study-plan-name">
+                <span>ชื่อแผนการเรียน :</span>
+                <input type="text" class="form-control" id="study_plan_name" formControlName="study_plan_name" />
+              </div>
+            </form>
+          </div>
+
+          <!-- add free course button -->
+          <div class="add-free-elective-course-area">
+            <button class="button-radius add-free-course-button" (click)="addAnotherCourse()">
+              <span> <mat-icon class="material-icons-round">add</mat-icon> เพิ่มวิชา </span>
+            </button>
+          </div>
+
+          <!------------  study plan panel  ------------>
+          <div class="mt-4">
+            <mat-accordion multi="true">
+              <div *ngFor="let year of studyPlan | keyvalue" class="mt-2">
+                <!-- YEAR panel -->
+                <div class="year">
+                  <mat-expansion-panel [expanded]="true" hideToggle="true" #yearPanel>
+                    <!-- YEAR panel header -->
+                    <mat-expansion-panel-header
+                      [collapsedHeight]="'calc(1.25vmax + 1.25vmin + 10px)'"
+                      [expandedHeight]="'calc(1.25vmax + 1.25vmin + 10px)'"
+                    >
+                      <mat-panel-title>
+                        <span> {{ "ปีการศึกษาที่ " + year.key }} </span>
+                      </mat-panel-title>
+                      <mat-panel-description>
+                        <fa-icon [icon]="yearPanel.expanded ? faChevronDown : faChevronLeft"></fa-icon>
+                      </mat-panel-description>
+                    </mat-expansion-panel-header>
+
+                    <div class="panel-content row">
+                      <div *ngFor="let trimester of year.value | keyvalue" class="panel-box col-4">
+                        <div class="panel-header">{{ "ภาคการศึกษาที่  " + trimester.key }}</div>
+                        <div class="panel-body">
+                          <div class="trimester">
+                            <p>
+                              <span
+                                [ngStyle]="{
+                                  color:
+                                    eachTrimesterCredit[year.key][trimester.key] < 8 ||
+                                    eachTrimesterCredit[year.key][trimester.key] > 22
+                                      ? '#d91818'
+                                      : 'unset'
+                                }"
+                                >{{ eachTrimesterCredit[year.key][trimester.key] }}</span
+                              >
+                              หน่วยกิต
+                            </p>
+
+                            <!---------------------------- วิชาบังคับ ----------------------------->
+
+                            <mat-accordion>
+                              <mat-expansion-panel
+                                [expanded]="checkCourseIsNotEmpty(trimester.value.main_course) ? true : false"
+                                hideToggle="true"
+                                #mainPanel
+                              >
+                                <mat-expansion-panel-header
+                                  [collapsedHeight]="'calc(1.25vmax + 1.25vmin)'"
+                                  [expandedHeight]="'calc(1.25vmax + 1.25vmin)'"
+                                >
+                                  <mat-panel-title>
+                                    <span> วิชาบังคับ </span>
+                                  </mat-panel-title>
+                                  <mat-panel-description>
+                                    <fa-icon [icon]="mainPanel.expanded ? faChevronDown : faChevronLeft"></fa-icon>
+                                  </mat-panel-description>
+                                </mat-expansion-panel-header>
+
+                                <div class="type-section">
+                                  <!-- module choice -->
+                                  <mat-form-field floatLabel="never">
+                                    <mat-select placeholder="เลือกชุดวิชา">
+                                      <span
+                                        *ngFor="let option of getOptionEachType(trimester.key, 'courses', ['1', '2', '4', '6'])"
+                                      >
+                                        <mat-option
+                                          (click)="
+                                            onClickCourseOption(year.key, trimester.key, 'main_course', 'courses', option, false)
+                                          "
+                                          [disabled]="
+                                            isPickedCourseOfModule(option) || isNotSpecifiedTrimester(option, trimester.key)
+                                          "
+                                        >
+                                          <div class="row">
+                                            <div class="module-id col-sm-2 col-xs-12">
+                                              {{ getCourseId(option) }}
+                                            </div>
+                                            <div class="module-name col-sm-10 col-xs-12">
+                                              {{ getCourseName(option) + " " }}
+                                              <span>
+                                                {{ getCourseCredit(option) + " หน่วยกิต" }}
+                                              </span>
+                                            </div>
+                                          </div>
+                                        </mat-option>
+
+                                        <ng-container *ngIf="option.courses">
+                                          <mat-option
+                                            (click)="
+                                              onClickCourseOption(
+                                                year.key,
+                                                trimester.key,
+                                                'main_course',
+                                                'courses',
+                                                option_,
+                                                false
+                                              )
+                                            "
+                                            *ngFor="let option_ of option.courses"
+                                            [disabled]="
+                                              isPickedCourseOfModule(option_) || isNotSpecifiedTrimester(option_, trimester.key)
+                                            "
+                                          >
+                                            <div class="row">
+                                              <div class="course-id col-sm-2 col-xs-12"></div>
+                                              <div class="course-name col-sm-10 col-xs-12">
+                                                <div class="row">
+                                                  <div class="course-id col-sm-2 col-xs-12">
+                                                    {{ option_.course_id }}
+                                                  </div>
+                                                  <div class="course-name col-sm-10 col-xs-12">
+                                                    {{ option_.course_name_th }}
+                                                    {{ option_.course_credit_hour }}
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </mat-option>
+                                        </ng-container>
+                                      </span>
+                                    </mat-select>
+                                  </mat-form-field>
+
+                                  <!-- course list -->
+                                  <div class="module-choice main_course_choice">
+                                    <mat-selection-list>
+                                      <ng-container *ngIf="checkCourseIsNotEmpty(trimester.value.main_course)">
+                                        <mat-list-option
+                                          checkboxPosition="before"
+                                          [class.mat-list-option-disabled]="isDisabledCourse(item.value)"
+                                          *ngFor="
+                                            let item of sortByBoolean(trimester.value.main_course.courses, 'isChecked')
+                                              | keyvalue;
+                                            let i = index
+                                          "
+                                          [selected]="item.value.isChecked"
+                                          (click)="
+                                            onClickCourse(year.key, trimester.key, 'main_course', 'courses', i, item.value)
+                                          "
+                                          attr.id="{{ year.key + trimester.key + 'main_course' + getCourseId(item.value) }}"
+                                        >
+                                          <div class="row">
+                                            <div class="id col-sm-3 col-xs-12">
+                                              {{ getCourseId(item.value) }}
+                                            </div>
+                                            <div class="name col-sm-9 col-xs-12">
+                                              {{ getCourseName(item.value) }}
+                                              <span>
+                                                {{ getCourseCredit(item.value) + " หน่วยกิต" }}
+                                              </span>
+                                            </div>
+                                          </div>
+                                        </mat-list-option>
+                                      </ng-container>
+                                    </mat-selection-list>
+                                  </div>
+                                </div>
+                              </mat-expansion-panel>
+                            </mat-accordion>
+
+                            <!---------------------------- ชุดวิชาเลือก ----------------------------->
+
+                            <mat-accordion>
+                              <mat-expansion-panel
+                                [expanded]="checkCourseIsNotEmpty(trimester.value.elective_course) ? true : false"
+                                hideToggle="true"
+                                #electivePanel
+                              >
+                                <mat-expansion-panel-header
+                                  [collapsedHeight]="'calc(1.25vmax + 1.25vmin)'"
+                                  [expandedHeight]="'calc(1.25vmax + 1.25vmin)'"
+                                >
+                                  <mat-panel-title>
+                                    <span> ชุดวิชาเลือก </span>
+                                  </mat-panel-title>
+                                  <mat-panel-description>
+                                    <fa-icon [icon]="electivePanel.expanded ? faChevronDown : faChevronLeft"></fa-icon>
+                                  </mat-panel-description>
+                                </mat-expansion-panel-header>
+
+                                <div class="type-section">
+                                  <!-- select option -->
+                                  <mat-form-field floatLabel="never">
+                                    <mat-select placeholder="เลือกชุดวิชา">
+                                      <span *ngFor="let option of getOptionEachType(trimester.key, 'courses', ['5'])">
+                                        <mat-option
+                                          (click)="
+                                            onClickCourseOption(
+                                              year.key,
+                                              trimester.key,
+                                              'elective_course',
+                                              'courses',
+                                              option,
+                                              false
+                                            )
+                                          "
+                                          [disabled]="
+                                            isPickedCourseOfModule(option) || isNotSpecifiedTrimester(option, trimester.key)
+                                          "
+                                        >
+                                          <div class="row">
+                                            <div class="module-id col-sm-2 col-xs-12">
+                                              {{ getCourseId(option) }}
+                                            </div>
+                                            <div class="module-name col-sm-10 col-xs-12">
+                                              {{ getCourseName(option) + " " }}
+                                              <span>
+                                                {{ getCourseCredit(option) + " หน่วยกิต" }}
+                                              </span>
+                                            </div>
+                                          </div>
+                                        </mat-option>
+                                        <ng-container *ngIf="option.courses">
+                                          <mat-option
+                                            (click)="
+                                              onClickCourseOption(
+                                                year.key,
+                                                trimester.key,
+                                                'elective_course',
+                                                'courses',
+                                                option_,
+                                                false
+                                              )
+                                            "
+                                            *ngFor="let option_ of option.courses"
+                                            [disabled]="
+                                              isPickedCourseOfModule(option_) || isNotSpecifiedTrimester(option_, trimester.key)
+                                            "
+                                          >
+                                            <div class="row">
+                                              <div class="course-id col-sm-2 col-xs-12"></div>
+                                              <div class="course-name col-sm-10 col-xs-12">
+                                                <div class="row">
+                                                  <div class="course-id col-sm-2 col-xs-12">
+                                                    {{ option_.course_id }}
+                                                  </div>
+                                                  <div class="course-name col-sm-10 col-xs-12">
+                                                    {{ option_.course_name_th }}
+                                                    {{ option_.course_credit_hour }}
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </mat-option>
+                                        </ng-container>
+                                      </span>
+                                    </mat-select>
+                                  </mat-form-field>
+
+                                  <!-- course list -->
+                                  <div class="module-choice">
+                                    <mat-selection-list>
+                                      <ng-container *ngIf="checkCourseIsNotEmpty(trimester.value.elective_course)">
+                                        <mat-list-option
+                                          checkboxPosition="before"
+                                          [class.mat-list-option-disabled]="isDisabledCourse(item.value)"
+                                          *ngFor="
+                                            let item of sortByBoolean(trimester.value.elective_course.courses, 'isChecked')
+                                              | keyvalue;
+                                            let i = index
+                                          "
+                                          [selected]="item.value.isChecked"
+                                          (click)="
+                                            onClickCourse(year.key, trimester.key, 'elective_course', 'courses', i, item.value)
+                                          "
+                                          attr.id="{{ year.key + trimester.key + 'elective_course' + getCourseId(item.value) }}"
+                                        >
+                                          <div class="row">
+                                            <div class="id col-sm-3 col-xs-12">
+                                              {{ getCourseId(item.value) }}
+                                            </div>
+                                            <div class="name col-sm-9 col-xs-12">
+                                              {{ getCourseName(item.value) }}
+                                              <span>
+                                                {{ getCourseCredit(item.value) + " หน่วยกิต" }}
+                                              </span>
+                                            </div>
+                                          </div>
+                                        </mat-list-option>
+                                      </ng-container>
+                                    </mat-selection-list>
+                                  </div>
+                                </div>
+                              </mat-expansion-panel>
+                            </mat-accordion>
+
+                            <!------------------------ วิชาศึกษาทั่วไปแบบเลือก ------------------------->
+
+                            <mat-accordion>
+                              <mat-expansion-panel
+                                [expanded]="checkCourseIsNotEmpty(trimester.value.selected_general_course)"
+                                hideToggle="true"
+                                #selected_general_coursePanel
+                              >
+                                <mat-expansion-panel-header
+                                  [collapsedHeight]="'calc(1.25vmax + 1.25vmin)'"
+                                  [expandedHeight]="'calc(1.25vmax + 1.25vmin)'"
+                                >
+                                  <mat-panel-title>
+                                    <span> วิชาศึกษาทั่วไปแบบเลือก </span>
+                                  </mat-panel-title>
+                                  <mat-panel-description>
+                                    <fa-icon
+                                      [icon]="selected_general_coursePanel.expanded ? faChevronDown : faChevronLeft"
+                                    ></fa-icon>
+                                  </mat-panel-description>
+                                </mat-expansion-panel-header>
+
+                                <!-- module choice -->
+                                <div class="type-section">
+                                  <mat-form-field floatLabel="never">
+                                    <mat-select placeholder="เลือกชุดวิชา">
+                                      <span *ngFor="let option of getOptionEachType(trimester.key, 'courses', ['3'])">
+                                        <mat-option
+                                          (click)="
+                                            onClickCourseOption(
+                                              year.key,
+                                              trimester.key,
+                                              'selected_general_course',
+                                              'courses',
+                                              option,
+                                              false
+                                            )
+                                          "
+                                          [disabled]="
+                                            isPickedCourseOfModule(option) || isNotSpecifiedTrimester(option, trimester.key)
+                                          "
+                                        >
+                                          <div class="row">
+                                            <div class="module-id col-sm-2 col-xs-12">
+                                              {{ getCourseId(option) }}
+                                            </div>
+                                            <div class="module-name col-sm-10 col-xs-12">
+                                              {{ getCourseName(option) + " " }}
+                                              <span>
+                                                {{ getCourseCredit(option) + " หน่วยกิต" }}
+                                              </span>
+                                            </div>
+                                          </div>
+                                        </mat-option>
+                                        <ng-container *ngIf="option.courses">
+                                          <mat-option
+                                            (click)="
+                                              onClickCourseOption(
+                                                year.key,
+                                                trimester.key,
+                                                'selected_general_course',
+                                                'courses',
+                                                option_,
+                                                false
+                                              )
+                                            "
+                                            *ngFor="let option_ of option.courses"
+                                            [disabled]="
+                                              isPickedCourseOfModule(option_) || isNotSpecifiedTrimester(option_, trimester.key)
+                                            "
+                                          >
+                                            <div class="row">
+                                              <div class="course-id col-sm-2 col-xs-12"></div>
+                                              <div class="course-name col-sm-10 col-xs-12">
+                                                <div class="row">
+                                                  <div class="course-id col-sm-2 col-xs-12">
+                                                    {{ option_.course_id }}
+                                                  </div>
+                                                  <div class="course-name col-sm-10 col-xs-12">
+                                                    {{ option_.course_name_th }}
+                                                    {{ option_.course_credit_hour }}
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </mat-option>
+                                        </ng-container>
+                                      </span>
+                                    </mat-select>
+                                  </mat-form-field>
+                                  <div class="module-choice">
+                                    <mat-selection-list>
+                                      <ng-container *ngIf="checkCourseIsNotEmpty(trimester.value.selected_general_course)">
+                                        <mat-list-option
+                                          checkboxPosition="before"
+                                          [class.mat-list-option-disabled]="isDisabledCourse(item.value)"
+                                          *ngFor="
+                                            let item of sortByBoolean(
+                                              trimester.value.selected_general_course.courses,
+                                              'isChecked'
+                                            ) | keyvalue;
+                                            let i = index
+                                          "
+                                          [selected]="item.value.isChecked"
+                                          (click)="
+                                            onClickCourse(
+                                              year.key,
+                                              trimester.key,
+                                              'selected_general_course',
+                                              'courses',
+                                              i,
+                                              item.value
+                                            )
+                                          "
+                                          attr.id="{{
+                                            year.key + trimester.key + 'selected_general_course' + getCourseId(item.value)
+                                          }}"
+                                        >
+                                          <div class="row">
+                                            <div class="id col-sm-3 col-xs-12">
+                                              {{ getCourseId(item.value) }}
+                                            </div>
+                                            <div class="name col-sm-9 col-xs-12">
+                                              {{ getCourseName(item.value) }}
+                                              <span>
+                                                {{ getCourseCredit(item.value) + " หน่วยกิต" }}
+                                              </span>
+                                            </div>
+                                          </div>
+                                        </mat-list-option>
+                                      </ng-container>
+                                    </mat-selection-list>
+                                  </div>
+                                </div>
+                              </mat-expansion-panel>
+                            </mat-accordion>
+
+                            <!---------------------------- วิชาเลือกเสรี ----------------------------->
+
+                            <mat-accordion>
+                              <mat-expansion-panel
+                                [expanded]="checkCourseIsNotEmpty(trimester.value.free_elective_course) ? true : false"
+                                hideToggle="true"
+                                #free_elective_coursePanel
+                              >
+                                <mat-expansion-panel-header
+                                  [collapsedHeight]="'calc(1.25vmax + 1.25vmin)'"
+                                  [expandedHeight]="'calc(1.25vmax + 1.25vmin)'"
+                                >
+                                  <mat-panel-title>
+                                    <span> วิชาเลือกเสรี </span>
+                                  </mat-panel-title>
+                                  <mat-panel-description>
+                                    <fa-icon
+                                      [icon]="free_elective_coursePanel.expanded ? faChevronDown : faChevronLeft"
+                                    ></fa-icon>
+                                  </mat-panel-description>
+                                </mat-expansion-panel-header>
+
+                                <!-- module choice -->
+                                <div class="type-section">
+                                  <mat-form-field floatLabel="never">
+                                    <mat-select placeholder="เลือกชุดวิชา">
+                                      <span *ngFor="let option of getOptionEachType(trimester.key, 'courses', ['7'])">
+                                        <mat-option
+                                          (click)="
+                                            onClickCourseOption(
+                                              year.key,
+                                              trimester.key,
+                                              'free_elective_course',
+                                              'courses',
+                                              option,
+                                              false
+                                            )
+                                          "
+                                          [disabled]="
+                                            isPickedCourseOfModule(option) || isNotSpecifiedTrimester(option, trimester.key)
+                                          "
+                                        >
+                                          <div class="row">
+                                            <div class="module-id col-sm-2 col-xs-12">
+                                              {{ getCourseId(option) }}
+                                            </div>
+                                            <div class="module-name col-sm-10 col-xs-12">
+                                              {{ getCourseName(option) + " " }}
+                                              <span>
+                                                {{ getCourseCredit(option) + " หน่วยกิต" }}
+                                              </span>
+                                            </div>
+                                          </div>
+                                        </mat-option>
+                                        <ng-container *ngIf="option.courses">
+                                          <mat-option
+                                            (click)="
+                                              onClickCourseOption(
+                                                year.key,
+                                                trimester.key,
+                                                'free_elective_course',
+                                                'courses',
+                                                option_,
+                                                false
+                                              )
+                                            "
+                                            *ngFor="let option_ of option.courses"
+                                            [disabled]="
+                                              isPickedCourseOfModule(option_) || isNotSpecifiedTrimester(option_, trimester.key)
+                                            "
+                                          >
+                                            <div class="row">
+                                              <div class="course-id col-sm-2 col-xs-12"></div>
+                                              <div class="course-name col-sm-10 col-xs-12">
+                                                <div class="row">
+                                                  <div class="course-id col-sm-2 col-xs-12">
+                                                    {{ option_.course_id }}
+                                                  </div>
+                                                  <div class="course-name col-sm-10 col-xs-12">
+                                                    {{ option_.course_name_th }}
+                                                    ({{ option_.course_credit_hour }})
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </mat-option>
+                                        </ng-container>
+                                      </span>
+                                    </mat-select>
+                                  </mat-form-field>
+                                  <div class="module-choice">
+                                    <mat-selection-list>
+                                      <ng-container *ngIf="checkCourseIsNotEmpty(trimester.value.free_elective_course)">
+                                        <mat-list-option
+                                          checkboxPosition="before"
+                                          [class.mat-list-option-disabled]="isDisabledCourse(item.value)"
+                                          *ngFor="
+                                            let item of sortByBoolean(trimester.value.free_elective_course.courses, 'isChecked')
+                                              | keyvalue;
+                                            let i = index
+                                          "
+                                          [selected]="item.value.isChecked"
+                                          (click)="
+                                            onClickCourse(
+                                              year.key,
+                                              trimester.key,
+                                              'free_elective_course',
+                                              'courses',
+                                              i,
+                                              item.value
+                                            )
+                                          "
+                                          attr.id="{{
+                                            year.key + trimester.key + 'free_elective_course' + getCourseId(item.value)
+                                          }}"
+                                        >
+                                          <div class="row">
+                                            <div class="id col-sm-3 col-xs-12">
+                                              {{ getCourseId(item.value) }}
+                                            </div>
+                                            <div class="name col-sm-9 col-xs-12">
+                                              {{ getCourseName(item.value) }}
+                                              <span>
+                                                {{ getCourseCredit(item.value) + " หน่วยกิต" }}
+                                              </span>
+                                            </div>
+                                          </div>
+                                        </mat-list-option>
+                                      </ng-container>
+                                    </mat-selection-list>
+                                  </div>
+                                </div>
+                              </mat-expansion-panel>
+                            </mat-accordion>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </mat-expansion-panel>
+                </div>
+              </div>
+            </mat-accordion>
+          </div>
+
+          <!------------  save button  ------------>
+          <div *ngIf="studyPlan" class="button-area">
+            <button class="button-radius save-button" (click)="onSaveProgram()">บันทึก</button>
+            <ng-container *ngIf="id; else backward"
+              ><button class="button-radius back-button" (click)="changeIsEditStudyPlan()">ยกเลิก</button></ng-container
+            >
+            <ng-template #backward>
+              <button class="button-radius back-button" (click)="redirect()">กลับ</button>
+            </ng-template>
+          </div>
+        </ng-container>
+
+        <!---------------------------------------->
+        <!-------------- VIEW PLAN --------------->
+        <!---------------------------------------->
+
+        <ng-template #isViewStudyPlan>
+          <!------------  config info section ------------>
+          <div class="study-plan-info">
+            <form [formGroup]="programForm">
+              <!------------  name field ------------>
+              <div class="study-plan-name">
+                <ng-container *ngIf="isStudent(); else teacherView">
+                  <span>ชื่อแผนการเรียน :</span>
+                  <span>{{ study_plan_name }}</span>
+                </ng-container>
+                <ng-template #teacherView>
+                  <span>นักศึกษา :</span>
+                  <span>{{ student_firstname + " " + student_lastname }}</span>
+                </ng-template>
+              </div>
+            </form>
+          </div>
+
+          <!------------  study plan panel  ------------>
+          <div class="mt-4">
+            <mat-accordion multi="true">
+              <div *ngFor="let year of studyPlan | keyvalue" class="mt-2">
+                <!-- YEAR panel -->
+                <div class="year">
+                  <mat-expansion-panel [expanded]="true" hideToggle="true" #yearPanel>
+                    <!-- YEAR panel header -->
+                    <mat-expansion-panel-header
+                      [collapsedHeight]="'calc(1.25vmax + 1.25vmin + 10px)'"
+                      [expandedHeight]="'calc(1.25vmax + 1.25vmin + 10px)'"
+                    >
+                      <mat-panel-title>
+                        <span> {{ "ปีการศึกษาที่ " + year.key }} </span>
+                      </mat-panel-title>
+                      <mat-panel-description>
+                        <fa-icon [icon]="yearPanel.expanded ? faChevronDown : faChevronLeft"></fa-icon>
+                      </mat-panel-description>
+                    </mat-expansion-panel-header>
+
+                    <div class="panel-content row">
+                      <div *ngFor="let trimester of year.value | keyvalue" class="panel-box col-4">
+                        <div class="panel-header">{{ "ภาคการศึกษาที่  " + trimester.key }}</div>
+                        <div class="panel-body" style="height: 80%">
+                          <div class="trimester" style="height: 100%">
+                            <p>
+                              <span
+                                [ngStyle]="{
+                                  color:
+                                    eachTrimesterCredit[year.key][trimester.key] < 8 ||
+                                    eachTrimesterCredit[year.key][trimester.key] > 22
+                                      ? '#d91818'
+                                      : 'unset'
+                                }"
+                                >{{ eachTrimesterCredit[year.key][trimester.key] }}</span
+                              >
+                              หน่วยกิต
+                            </p>
+                            <div class="panel-view">
+                              <div class="row m-0">
+                                <ng-container *ngFor="let item of getAllCourse(trimester.value) | keyvalue; let i = index">
+                                  <div></div>
+                                  <div class="mt-1 id col-sm-3">
+                                    {{ getCourseId(item.value) }}
+                                  </div>
+                                  <div class="mt-1 name col-sm-9">
+                                    {{ getCourseName(item.value) }}
+                                    <span>
+                                      {{ getCourseCredit(item.value) + " หน่วยกิต" }}
+                                    </span>
+                                  </div>
+                                </ng-container>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </mat-expansion-panel>
+                </div>
+              </div>
+            </mat-accordion>
+          </div>
+
+          <!------------  save button  ------------>
+          <div *ngIf="studyPlan" class="button-area">
+            <ng-container *ngIf="isTeacher()">
+              <ng-container *ngIf="isAvailableToAprrove()">
+                <button class="button-radius approve-button" (click)="approveStudentPlan()">
+                  <span> <fa-icon [icon]="faCheck"></fa-icon> อนุมัติ </span>
+                </button>
+                <button class="button-radius reject-button" (click)="notApproveStudentPlan()">
+                  <span> <fa-icon [icon]="faRedo"></fa-icon> ไม่อนุมัติ </span>
+                </button>
+              </ng-container>
+
+              <ng-container *ngIf="isEditRequest()">
+                <button class="button-radius approve-button" (click)="approveEditsStudentPlan()">
+                  <span> <fa-icon [icon]="faCheck"></fa-icon> อนุมัติให้แก้ไข </span>
+                </button>
+                <button class="button-radius reject-button" (click)="notApproveEditsStudentPlan()">
+                  <span> <fa-icon [icon]="faRedo"></fa-icon> ไม่อนุมัติให้แก้ไข </span>
+                </button>
+              </ng-container>
+            </ng-container>
+            <button class="button-radius back-button" (click)="redirect()">กลับ</button>
+          </div>
+        </ng-template>
+      </div>
+    </ng-container>
+  </div>
+</section>

@@ -1,0 +1,132 @@
+<section>
+  <div class="bg">
+    <div class="header">ลงทะเบียน</div>
+    <div class="register-container">
+      <div class="column">
+        <p>ข้อมูลสมาชิก</p>
+        <form [formGroup]="registerForm">
+          <div class="row">
+            <div class="col-md-6 col-sm-12">
+              <div class="form-group">
+                <label class="bmd-label-floating">รหัสนักศึกษา</label>
+
+                <input
+                  type="text"
+                  class="form-control"
+                  id="user_id"
+                  formControlName="user_id"
+                />
+                <span *ngIf="user_id.dirty || user_id.touched || submitted">
+                  <span
+                    *ngIf="
+                      user_id.value &&
+                      user_id.invalid &&
+                      !user_id.errors?.user_id
+                    "
+                  >
+                    รหัสนักศึกษาไม่ถูกต้อง
+                  </span>
+                  <span *ngIf="!user_id.value && user_id.errors?.required">
+                    ข้อมูลจำเป็นกรอก
+                  </span>
+                </span>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <div class="form-group bmd-form-group">
+                <label class="bmd-label-floating">รหัสผ่าน</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="user_password"
+                  formControlName="user_password"
+                />
+                <span *ngIf="user_password.errors?.required && submitted">
+                  ข้อมูลจำเป็นกรอก
+                </span>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <div class="form-group">
+                <label class="bmd-label-floating">ชื่อ</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="user_firstname"
+                  formControlName="user_firstname"
+                />
+                <span *ngIf="user_firstname.errors?.required && submitted">
+                  ข้อมูลจำเป็นกรอก
+                </span>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <div class="form-group">
+                <label class="bmd-label-floating">นามสกุล</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="user_lastname"
+                  formControlName="user_lastname"
+                /><span *ngIf="user_lastname.errors?.required && submitted">
+                  ข้อมูลจำเป็นกรอก
+                </span>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label class="bmd-label-floating">E-mail</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="user_email"
+                  formControlName="user_email"
+                />
+                <span *ngIf="user_email.dirty || user_email.touched">
+                  <span *ngIf="user_email.invalid">
+                    E-mail ไม่ถูกต้อง
+                  </span>
+                </span>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label class="bmd-label-floating">เบอร์โทรศัพท์</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="user_tel"
+                  formControlName="user_tel"
+                />
+                <span *ngIf="user_tel.dirty || user_tel.touched">
+                  <span *ngIf="user_tel.invalid">
+                    เบอร์โทรศัพท์ไม่ถูกต้อง
+                  </span>
+                </span>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label class="bmd-label-floating">หลักสูตร</label>
+                <select
+                  class="form-control"
+                  id="syllabus_id"
+                  formControlName="syllabus_id"
+                >
+                  <option [value]="1">1</option>
+                  <option [value]="2">2</option>
+                </select>
+                <span *ngIf="syllabus_id.errors?.required && submitted">
+                  ข้อมูลจำเป็นกรอก
+                </span>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <button (click)="OnSubmit()" class="button-radius register-button">
+      ลงทะเบียน
+    </button>
+  </div>
+</section>

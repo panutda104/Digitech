@@ -1,0 +1,51 @@
+<app-sidebar></app-sidebar>
+<section>
+  <div class="header">พิจารณาแผนการเรียน</div>
+
+  <div class="content">
+    <div class="type-tab">
+      <mat-tab-group animationDuration="0ms">
+        <mat-tab label="คำขออนุมัติ">
+          <div *ngIf="requestList" class="table-tab">
+            <mat-tab-group mat-align-tabs="center" disableRipple="true">
+              <mat-tab label="รออนุมัติ">
+                <app-consideration-table [data]="isPendingConsideration()"> </app-consideration-table>
+              </mat-tab>
+              <mat-tab label="รออนุมัติแก้ไขแผน">
+                <app-consideration-table [data]="isEditRequest()"></app-consideration-table>
+              </mat-tab>
+              <mat-tab label="อนุมัติแล้ว">
+                <app-consideration-table [data]="isApproved()"></app-consideration-table>
+              </mat-tab>
+              <mat-tab label="ไม่อนุมัติ">
+                <app-consideration-table [data]="isNotApproved()"></app-consideration-table>
+              </mat-tab>
+              <mat-tab label="ยกเลิก">
+                <app-consideration-table [data]="isCancelApproved()"></app-consideration-table>
+              </mat-tab>
+            </mat-tab-group>
+          </div>
+        </mat-tab>
+
+        <mat-tab label="คำขอคำแนะนำ">
+          <div *ngIf="requestList" class="table-tab">
+            <mat-tab-group mat-align-tabs="center" disableRipple="true">
+              <!-- <mat-tab label="รอคำแนะนำ">
+                <app-consideration-table [data]="isPendingAdvise()"> </app-consideration-table>
+              </mat-tab>
+              <mat-tab label="แนะนำแล้ว">
+                <app-consideration-table [data]="isAdvise()"></app-consideration-table>
+              </mat-tab>
+              <mat-tab label="ไม่แนะนำ">
+                <app-consideration-table [data]="isNotAdvise()"></app-consideration-table>
+              </mat-tab>
+              <mat-tab label="ยกเลิก">
+                <app-consideration-table [data]="isCancelAdvise()"></app-consideration-table>
+              </mat-tab> -->
+            </mat-tab-group>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</section>

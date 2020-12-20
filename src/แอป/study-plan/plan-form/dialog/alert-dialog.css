@@ -1,0 +1,69 @@
+::ng-deep .cdk-global-overlay-wrapper {
+  /* display: flex;
+    position: absolute; */
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.4);
+}
+::ng-deep .cdk-overlay-pane {
+  position: absolute !important;
+  top: 20% !important;
+  width: max-content;
+  min-width: 40%;
+  width: max-content;
+  /* margin-top: -10rem; */
+}
+::ng-deep .cdk-global-scrollblock {
+  position: absolute;
+  overflow-y: unset;
+}
+
+/**
+   * ----------------------------------------
+   * approved
+   * ----------------------------------------
+   */
+
+.checkmark .mat-icon {
+  font-size: 7.5rem;
+}
+.checkmark .success {
+  color: #42bc63;
+}
+
+.checkmark .fail {
+  color: #de4343;
+}
+
+.checkmark > p {
+  font-family: "SUTregular";
+  font-size: 2rem;
+}
+
+.checkmark .button-area {
+  display: inline-table;
+  margin: 0.5rem auto;
+}
+
+.checkmark button {
+  vertical-align: sub;
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  padding: 0.15rem 1.5rem !important;
+  margin: 0.5rem;
+  font-family: "sutbold";
+  font-size: 1.25rem;
+}
+
+.checkmark .back-button {
+  color: #fff;
+  background-color: #cbcbcb;
+}
+
+.checkmark button span fa-icon {
+  font-size: 1rem;
+  margin-right: 0.25rem;
+}
+
+.checkmark .mat-icon.mat-icon-inline {
+  width: 7.5rem;
+}

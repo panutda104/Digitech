@@ -1,0 +1,256 @@
+::ng-deep .cdk-global-overlay-wrapper {
+  background-color: rgba(0, 0, 0, 0.45);
+}
+::ng-deep .cdk-overlay-pane {
+  width: 50%;
+}
+::ng-deep .mat-select-search-inner {
+  font-family: "DBRegular";
+  font-size: calc(1vmax + 0.5vmin);
+}
+
+::ng-deep .mat-select-search-inner ::placeholder {
+  font-family: "DBRegular";
+  font-size: calc(1vmax + 0.5vmin);
+}
+::ng-deep .mat-select-panel-wrap {
+  flex-basis: 45%;
+}
+
+:host {
+  font-family: "sutRegular";
+  font-size: calc(0.25vmin + 0.25vmax + 10px);
+  color: var(--main-black-color);
+}
+
+.course-dialog {
+  padding: 1rem 2rem;
+}
+
+.dialog-header {
+  font-family: "SUTbold";
+  font-size: 1.75rem;
+  line-height: 2rem;
+  margin-top: 0.5rem;
+}
+
+.dialog-header hr {
+  background-color: #d8d8d8;
+  height: 1.5px;
+}
+
+.dialog-body {
+  padding: 0 1rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  width: 80%;
+  margin: 1rem auto;
+}
+
+/* select */
+
+.select-course {
+  margin: 2rem auto;
+  display: flex;
+  width: 100%;
+  font-size: 1.25rem;
+}
+
+.select-course p {
+  width: 10rem;
+  margin: 0;
+  display: block;
+}
+
+::ng-deep .select-course .mat-form-field-underline {
+  display: none;
+}
+::ng-deep .select-course .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  color: var(--main-green-color);
+}
+::ng-deep .select-course .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: var(--main-green-color);
+}
+
+::ng-deep .mat-select-search-inside-mat-option .mat-select-search-input {
+  font-size: 1.225rem;
+  font-family: "sutregular";
+}
+
+.mat-option,
+.mat-select,
+.mat-form-field {
+  font-size: 1.225rem;
+  font-family: "sutregular";
+}
+.select-course .mat-form-field {
+  width: 100%;
+  padding: 0.5rem 1.5rem;
+  border-radius: 100px;
+  background-color: #f8f8f8;
+}
+
+.select-course .mat-form-field {
+  max-width: unset;
+  margin: unset;
+  display: inline-block;
+}
+
+::ng-deep .select-course .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+  padding-bottom: 0;
+}
+
+::ng-deep .select-course .mat-form-field-infix {
+  border-top: 0;
+}
+::ng-deep .select-course .mat-form-field-appearance-legacy .mat-form-field-infix {
+  padding: 0;
+}
+.select-course .mat-option {
+  height: 2em !important;
+}
+::ng-deep .select-course .mat-form-field-appearance-legacy .mat-form-field-label {
+  top: 0em;
+}
+::ng-deep .select-course .mat-form-field-label-wrapper {
+  top: 0em;
+  padding-top: 0em;
+}
+::ng-deep .mat-select-panel .mat-optgroup-label,
+.mat-select-panel .mat-option {
+  height: max-content;
+}
+
+::ng-deep .mat-option {
+  font-size: 1.25rem !important;
+  line-height: 2.5rem !important;
+  height: max-content !important;
+}
+
+.add-button {
+  background-color: var(--main-green-color);
+  color: #ffffff;
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.1);
+  height: initial;
+  width: 6rem;
+  margin: 0 1rem;
+  cursor: pointer;
+}
+
+.course-list {
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  width: 100%;
+  padding: 1vh;
+  height: 15rem;
+  overflow-y: scroll;
+}
+
+.course-list > p {
+  font-family: "SUTRegular";
+  font-size: 1rem;
+  margin: 0.5rem;
+  text-align: center;
+  color: #b1b1b1;
+}
+
+.mat-card {
+  font-family: "SUTRegular";
+  font-size: 1.25rem;
+  padding: 0 1vw;
+  margin: 0.5vh;
+  /* display: flex; */
+  position: relative;
+}
+.mat-card .content {
+  margin-right: 0.5rem;
+  width: 100%;
+  display: flex;
+}
+
+.mat-card .content .id {
+  width: 10%;
+  margin-right: 2.5%;
+  min-width: max-content;
+}
+.mat-card .content .name {
+  width: 85%;
+  margin-right: 2.5%;
+  display: block;
+}
+
+.mat-card .content .name p {
+  width: 100%;
+  margin: 0;
+}
+
+.mat-card .content .name .credit-area {
+  width: 100%;
+  padding-bottom: 0.25rem;
+  margin-top: -0.25rem;
+}
+
+.mat-card .content .name .credit-area .credit {
+  background-color: var(--dark-gray-3);
+  color: var(--dark-gray);
+  border-radius: 100px;
+  padding: 0 1rem;
+  line-height: 1.25rem;
+  font-size: 0.85rem;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.mat-card .content .name .credit-area .trimester {
+  background-color: #ffcccf;
+  color: var(--main-red-color);
+  border-radius: 100px;
+  padding: 0 1rem;
+  line-height: 1.25rem;
+  font-size: 0.85rem;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.mat-card .remove-icon {
+  position: absolute;
+  right: 0;
+  top: 0.25rem;
+}
+
+.delete-icon {
+  color: #292929;
+  border: none;
+  border-radius: 100px;
+  width: calc(1vmax + 1vmin);
+  height: calc(1vmax + 1vmin);
+  margin: 0 0.25vw;
+  cursor: pointer;
+}
+
+.button-area {
+  display: table;
+  margin: 2.5rem auto;
+}
+
+button {
+  vertical-align: sub;
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  padding: 0.15rem 1.5rem !important;
+  margin: 0 0.5rem;
+  font-family: "sutbold";
+  font-size: 1.25rem;
+}
+
+.save-button {
+  color: #fff;
+  background-color: var(--main-green-color);
+  min-width: 7.5rem;
+}
+
+.back-button {
+  color: #fff;
+  background-color: #cbcbcb;
+  min-width: 7.5rem;
+}

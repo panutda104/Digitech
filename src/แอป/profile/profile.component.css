@@ -1,0 +1,238 @@
+::ng-deep body {
+  background: var(--main-blue-gd);
+  min-height: fit-content;
+}
+:host {
+  display: flex;
+  font-family: "SUTRegular";
+  font-size: calc(1vmax + 0.5vmin);
+  padding: 2.5%;
+}
+
+section {
+  width: 100%;
+  margin: 7.5rem 1rem;
+}
+
+section > .header {
+  font-family: "SUTBold";
+  color: #ffffff;
+  font-size: 2.75rem;
+  text-shadow: 1px 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+section > .content {
+  background-color: #fafafa;
+  margin: 1vh 0;
+  padding: 5% 7.5%;
+  box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+section > .content .section-1 {
+  /* display: flex;
+  position: relative; */
+}
+
+section > .content .section-1 > p:first-of-type,
+section > .content .section-2 > div > p:first-of-type,
+section > .content .section-3 > div > p:first-of-type {
+  font-size: 1.75rem;
+  font-family: "SUTbold";
+  margin: 0;
+}
+.edit-button {
+  font-size: 1.5rem;
+  border: none;
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.1);
+  margin-left: auto;
+  cursor: pointer;
+}
+
+section > .content .section-2 .material-icons,
+section > .content .section-3 .material-icons {
+  font-size: 1.25rem;
+  vertical-align: middle;
+}
+
+section > .content hr {
+  margin: 0.5rem 0;
+  width: 100%;
+  background-color: #d8d8d8;
+}
+section > .content .form-content {
+  padding: 1% 0 0 0;
+  /* color: #525252; */
+  font-size: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+section > .content > .form-content .row {
+  padding: 0.75% 0;
+}
+.bmd-form-group {
+  padding-top: 0;
+}
+.form-group {
+  margin: 0;
+}
+.form-control {
+  padding: 0 0.5vw;
+  font-size: 1.25rem;
+  width: 70%;
+}
+.error-text {
+  position: absolute;
+  font-size: 0.75rem;
+  color: red;
+}
+.button-area {
+  display: table;
+  margin: 0rem auto 2rem auto;
+}
+
+.save-button {
+  font-size: 1.25rem;
+  background-color: var(--main-green-color);
+  color: #ffffff;
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 1vmin;
+  cursor: pointer;
+}
+.cancel-button {
+  font-size: 1.25rem;
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 1vmin;
+  cursor: pointer;
+}
+/* -------------------------------------- */
+/* -------------  form field  ----------- */
+/* -------------------------------------- */
+
+::ng-deep section > .content .section-1 .form-content {
+  margin-top: 1rem;
+  color: #434343;
+}
+
+::ng-deep section > .content .section-1 .form-content > form > .row,
+::ng-deep section > .content .section-2 .form-content > form > .row {
+  margin-top: -0.5rem !important;
+}
+
+section > .content .section-1 .form-content .name-field {
+  /* font-family: "SUTBold"; */
+  font-size: 1.35rem;
+}
+
+::ng-deep .section-2 .mat-form-field-infix {
+  border-top: 0 !important;
+}
+
+::ng-deep .section-2 .mat-form-field-appearance-legacy .mat-form-field-infix {
+  padding: 0 !important;
+}
+
+::ng-deep .section-2 .mat-form-field-appearance-outline .mat-form-field-outline {
+  top: 0 !important;
+}
+::ng-deep .section-2 .mat-form-field-appearance-outline .mat-form-field-infix,
+::ng-deep .section-2 .mat-form-field-infix {
+  padding: 0.5rem 0;
+}
+
+::ng-deep .section-3 .mat-form-field-flex > .mat-form-field-infix {
+  padding: 0.25rem 0 0.75rem 0px !important ;
+  font-size: 1.25rem;
+  font-family: "SUTRegular" !important;
+}
+::ng-deep .section-2 .mat-form-field-label-wrapper,
+::ng-deep .section-3 .mat-form-field-label-wrapper {
+  top: -1.5em;
+}
+::ng-deep
+  .section-2
+  .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float
+  .mat-form-field-label,
+::ng-deep
+  .section-3
+  .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float
+  .mat-form-field-label {
+  transform: translateY(-1.1em) scale(0.75);
+  width: 133.33333%;
+}
+
+::ng-deep section > .content .section-1 .form-content .mat-form-field,
+::ng-deep section > .content .section-2 .form-content .mat-form-field {
+  font-family: "SUTRegular";
+  font-size: 1.35rem;
+  line-height: unset;
+  width: 100%;
+}
+::ng-deep section > .content .section-1 .form-content .mat-form-field-infix {
+  padding: 0;
+  border-top: 0;
+}
+
+::ng-deep section > .content .section-1 .form-content .mat-form-field-appearance-fill .mat-form-field-flex {
+  padding: 0 !important;
+}
+
+::ng-deep section > .content .section-1 .form-content .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+  padding-bottom: 1.75rem;
+}
+::ng-deep section > .content .form-content .mat-form-field-ripple {
+  background-color: var(--main-green-color) !important;
+}
+
+::ng-deep .section-2 .mat-form-field,
+::ng-deep .section-3 .mat-form-field {
+  width: 50% !important;
+}
+
+::ng-deep .section-2 .form-content .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick,
+::ng-deep .section-3 .form-content .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: var(--main-green-color) !important;
+}
+
+::ng-deep section > .content .section-1 .form-content .mat-form-field-underline,
+::ng-deep section > .content .section-2 .form-content .mat-form-field-underline {
+  background-color: #d8d8d8 !important;
+}
+/* ::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+  padding: 0 0 0.5rem 0 !important;
+} */
+
+::ng-deep .section-2 .mat-form-field-appearance-outline .mat-form-field-wrapper,
+::ng-deep .section-3 .mat-form-field-appearance-outline .mat-form-field-wrapper {
+  margin: 0 !important;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: var(--main-green-color) !important;
+}
+
+::ng-deep .section-3 .mat-form-field-wrapper {
+  padding-bottom: 1rem !important;
+}
+
+/* form check */
+.new-password-check {
+  margin-bottom: 1rem;
+}
+
+.new-password-check > p {
+  font-size: 0.95rem;
+  padding: 0;
+  margin: 0;
+}
+
+.new-password-check > p:not(:first-child) {
+  text-indent: 1rem;
+}
+
+.invalid-text {
+  color: red;
+}
+
+.valid-text {
+  color: green;
+}

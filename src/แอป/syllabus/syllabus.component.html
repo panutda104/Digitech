@@ -1,0 +1,60 @@
+<!------------------------- BANNER SECTION ----------------------->
+<section>
+  <div class="banner-bg">
+    <div class="banner-container">
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="banner-header">สาขาวิชา{{ syllabus_info ? syllabus_info.syllabus_name_th : "" }}</div>
+          <div class="banner-content">
+            <span></span>
+            <p>
+              {{ syllabus_info ? syllabus_info.syllabus_detail_th : "" }}
+            </p>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <img
+            class="banner-cover"
+            src="{{ syllabus_info ? './assets/images/' + syllabus_info.syllabus_image_name : '' }}"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!------------------------- END BANNER SECTION ----------------------->
+
+<!--------------------------- CAREER TYPE SECTION ------------------------->
+<section>
+  <div class="career-type-container">
+    <div class="header">แนะนำแผนการเรียนตามอาชีพ</div>
+    <div class="career-type-body">
+      <div class="grid-row">
+        <div class="grid-item" *ngFor="let career_type of careerType_list">
+          <div class="card-bg">
+            <img class="card-icon" src="https://image.flaticon.com/icons/svg/25/25694.svg" />
+            <div class="card-title">{{ career_type.career_type_name_en }}</div>
+            <ul>
+              <li *ngFor="let career of career_type.career_list">
+                <div class="row px-4">
+                  <div class="col-2 p-0"></div>
+                  <div class="col-10 px-2">
+                    <a href="./career?career_type_id={{ career_type.id }}&career_id={{ career.id }}">
+                      {{ career.career_name_en }}
+                    </a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!------------------------- END CAREER TYPE SECTION ----------------------->
+
+<!------------------------- FOOTER SECTION ------------------------->
+<app-footer></app-footer>
+<!----------------------- END FOOTER SECTION ----------------------->

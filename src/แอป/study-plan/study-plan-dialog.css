@@ -1,0 +1,43 @@
+.cdk-overlay-pane {
+  width: 65%;
+}
+::ng-deep .mat-dialog-container {
+  padding: 5vh 5vw;
+}
+
+:host {
+  font-family: "DBRegular";
+  font-size: calc(1vmax + 0.5vmin);
+  background: var(--main-blue-gd);
+}
+
+::ng-deep .cdk-global-scrollblock {
+  position: absolute;
+  overflow-y: hidden;
+}
+
+.accept-button {
+  font-size: calc(1vmax + 0.5vmin);
+  background-color: var(--main-green-color);
+  color: #ffffff;
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 1vmin;
+}
+.cancel-button {
+  font-size: calc(1vmax + 0.5vmin);
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 1vmin;
+}
+
+.mat-dialog-actions {
+  display: table;
+  margin: 0 auto;
+}
+
+span {
+  width: max-content;
+  position: absolute;
+  right: 0;
+  color: red;
+  font-size: calc(1vmin + 0.5vmax);
+}

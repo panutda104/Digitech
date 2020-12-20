@@ -1,0 +1,29 @@
+<section class="text-center">
+  <div class="reject">
+    <div class="title">ไม่อนุมัติแผนการเรียนของ</div>
+    <div class="name">{{data.student}}</div>
+    <div *ngIf="isComment" class="slide-bottom comment-area">
+      <p>เนื่องจาก</p>
+      <textarea [(ngModel)]="commentText" name="commentText" placeholder="ไม่อนุมัติ เนื่องจาก..."></textarea>
+    </div>
+    <div class="button-area">
+      <ng-container *ngIf="!isComment; else comment">
+        <button class="button-radius notApprove-button" (click)="isRejectWithComment()">
+          <span> <fa-icon [icon]="faRedo"></fa-icon> ยืนยันไม่อนุมัติ </span>
+        </button>
+        <button class="button-radius adjust-button">
+          <span> <fa-icon [icon]="faEdit"></fa-icon> ปรับแผนนักศึกษา </span>
+        </button></ng-container
+      >
+      <ng-template #comment>
+        <button class="button-radius confirm-button" (click)="onRejectStudyPlan()">
+          <span> <fa-icon [icon]="faRedo"></fa-icon> ยืนยัน </span>
+        </button>
+      </ng-template>
+
+      <button (click)="onNoClick()" class="button-radius cancel-button">
+        <span> ยกเลิก </span>
+      </button>
+    </div>
+  </div>
+</section>
