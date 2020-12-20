@@ -1,0 +1,12 @@
+RewriteEngine On
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+RewriteRule ^ - [L]
+
+RewriteCond %{REMOTE_ADDR} !=127.0.0.1
+RewriteCond %{REQUEST_URI} ^/dev/
+RewriteRule ^ /dev/Digitech-Plan/index.html
+
+RewriteCond %{REMOTE_ADDR} !=127.0.0.1
+RewriteCond %{REQUEST_URI} !^/dev/
+RewriteRule ^ /Digitech-Plan/index.html
