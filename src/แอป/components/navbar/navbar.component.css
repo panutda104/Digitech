@@ -1,0 +1,143 @@
+.nav-logo {
+  width: 70%;
+}
+.nav-logo > img {
+  width: 100%;
+}
+
+.navbar {
+  padding: 1.5% 2%;
+  font-family: "sutregular";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  box-shadow: none;
+}
+
+.navbar-nav {
+  float: right;
+  border-radius: 10px;
+  background-color: var(--main-blue-color);
+}
+
+.nav-item {
+  margin: auto;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 1);
+}
+
+a {
+  font-size: 3vmax !important;
+  line-height: 3.7vmax;
+}
+
+.login-button {
+  border: 2.25px solid var(--main-red-color);
+  padding: 0 3.5vmax;
+}
+
+.navbar-toggler-icon {
+  width: 2.5vmax;
+  height: 2.5vmax;
+}
+
+.navbar-dark .navbar-toggler {
+  color: #ffffff;
+  border: none;
+}
+
+.navbar-dark .navbar-toggler-icon {
+  background-image: url("/assets/images/Icon-menu.svg");
+}
+
+.nav-menu {
+  position: relative !important;
+  right: 0;
+  margin-right: 5vw;
+}
+
+.dropdown-menu {
+  transform-origin: 100% 0;
+}
+.dropdown-toggle:after {
+  margin-left: 0.25em;
+  vertical-align: 0.1em;
+}
+/* ------------------------ Moblie ------------------------ */
+@media only screen and (min-width: 320px) and (orientation: portrait) {
+  .nav-logo {
+    width: 70%;
+  }
+}
+@media only screen and (min-width: 320px) and (orientation: landscape) {
+  .nav-logo {
+    width: 50%;
+  }
+}
+
+/* ------------------------ Ipad ------------------------ */
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .nav-logo {
+    width: 50%;
+  }
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding: 1vh 2.5vw;
+  }
+
+  a {
+    font-size: 2vh !important;
+    line-height: 2.7vh;
+  }
+
+  .login-button {
+    padding: 0 2.5vh;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .navbar-nav {
+    background-color: transparent;
+  }
+  .nav-logo {
+    width: 50%;
+  }
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding: 0 2vw;
+  }
+  a {
+    font-size: 1.75vmax !important;
+    line-height: 2.5vmax;
+  }
+  .login-button {
+    padding: 0 2.5vmax;
+  }
+}
+
+/* ------------------------ Special for portrait Ipad Pro ------------------------ */
+@media only screen and (min-width: 1024px) and (orientation: portrait) {
+  .navbar-nav {
+    background-color: transparent;
+  }
+}
+
+/* ------------------------ Desktops ------------------------ */
+@media only screen and (min-width: 1025px) {
+  .navbar-nav {
+    background-color: transparent;
+  }
+  .nav-logo {
+    width: 30%;
+  }
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding: 0 2vw;
+  }
+  a {
+    font-size: 2.5vh !important;
+    line-height: 3.7vh;
+  }
+  .login-button {
+    padding: 0 3.5vh;
+  }
+}

@@ -1,0 +1,166 @@
+::ng-deep .cdk-overlay-pane {
+  width: 65%;
+}
+::ng-deep .mat-dialog-container {
+  padding: 5vh 5vw;
+}
+
+:host {
+  font-family: "DBRegular";
+  font-size: calc(1vmax + 0.5vmin);
+  background: var(--main-blue-gd);
+}
+.bmd-form-group {
+  position: relative;
+  padding-top: 0;
+}
+.custom-file-control,
+.form-control {
+  font-size: 1em;
+  padding: 0.1em;
+}
+
+::ng-deep .cdk-global-scrollblock {
+  position: absolute;
+  overflow-y: hidden;
+}
+::ng-deep select.form-control:not([size]):not([multiple]) {
+  height: 1.5em;
+}
+
+.col-3 {
+  color: #009688;
+  font-weight: bolder;
+  letter-spacing: 1px;
+}
+
+.accept-button,
+.add-button {
+  font-size: calc(1vmax + 0.5vmin);
+  background-color: var(--main-green-color);
+  color: #ffffff;
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 1vmin;
+  cursor: pointer;
+}
+
+.cancel-button {
+  font-size: calc(1vmax + 0.5vmin);
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 1vmin;
+  cursor: pointer;
+}
+
+.add-button {
+  position: absolute;
+  right: 0;
+  bottom: 50%;
+}
+.add-button:disabled {
+  color: gray;
+  background-color: #fafafa;
+  cursor: default;
+}
+
+.mat-dialog-actions {
+  display: table;
+  margin: 0 auto;
+}
+
+span {
+  width: max-content;
+  position: absolute;
+  right: 0;
+  color: red;
+  font-size: calc(1vmin + 0.5vmax);
+}
+.mat-form-field {
+  width: calc(100% - (4 * (1vmax + 1vmin)));
+}
+
+.mat-option {
+  font-family: "DBRegular";
+  font-size: calc(1vmax + 0.5vmin);
+  height: 2em;
+}
+.mat-select {
+  font-family: "DBRegular";
+  font-size: calc(1vmax + 0.5vmin);
+}
+.material-icons {
+  font-size: calc(0.75vmax);
+  line-height: calc(0.75vmax);
+  height: calc(1vmax);
+  width: calc(1vmax);
+  vertical-align: middle;
+  font-weight: bolder;
+}
+
+.delete-icon {
+  color: #292929;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 100px;
+  width: calc(1vmax + 1vmin);
+  height: calc(1vmax + 1vmin);
+  margin: 0 0.25vw;
+  cursor: pointer;
+}
+
+.select-course {
+  display: flex;
+  position: relative;
+}
+
+.course-list {
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  width: 100%;
+  padding: 1vh;
+}
+
+.career-list {
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  padding: 1vh 1vw;
+  margin: 2.5% 10%;
+}
+
+.mat-card {
+  font-family: "DBRegular";
+  font-size: calc(1vmax + 0.5vmin);
+  padding: 0 1vw;
+  margin: 0.5vh;
+  /* display: flex; */
+  position: relative;
+}
+
+.mat-card button {
+  position: absolute;
+  right: 0;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: #009688;
+}
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix {
+  padding: 0.25em;
+}
+::ng-deep .mat-form-field-label-wrapper .mat-form-field-label {
+  font-family: "DBRegular";
+  padding: 0 0.25em;
+  font-size: calc(1vmax + 0.5vmin);
+}
+
+::ng-deep .mat-select-search-inner {
+  font-family: "DBRegular";
+  font-size: calc(1vmax + 0.5vmin);
+}
+
+::ng-deep .mat-select-search-inner ::placeholder {
+  font-family: "DBRegular";
+  font-size: calc(1vmax + 0.5vmin);
+}
+::ng-deep .mat-select-panel-wrap {
+  flex-basis: 50%;
+}

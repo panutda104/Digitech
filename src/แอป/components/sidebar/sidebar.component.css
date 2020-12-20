@@ -1,0 +1,55 @@
+:host {
+  width: 25%;
+  height: 100%;
+  font-family: "sutBold";
+  font-size: calc(0.25vmin + 0.25vmax + 10px);
+}
+.sidebar {
+  background-color: #ffffff;
+  margin: 7.5rem 1rem 0 1rem;
+  box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* The navigation menu links */
+.sidebar a {
+  padding: 1rem 1.5rem;
+  font-size: calc(1rem + 0.25vmin + 0.25vmax);
+  text-decoration: none;
+  display: block;
+  transition: 0.3s;
+  color: var(--main-black-color);
+}
+
+.sidebar a .menu {
+  display: flex;
+}
+
+.sidebar a .menu .menu-icon {
+  width: 20%;
+}
+.sidebar a .menu .menu-name {
+  width: 80%;
+}
+
+.sidebar a fa-icon {
+  vertical-align: text-top;
+  /* margin-right: 0.25em; */
+}
+
+.sidebar a span {
+  /* font-size: calc(1vmax + 0.5vmin); */
+}
+
+.sidebar a:hover {
+  background-color: #eaeaea;
+}
+
+.sidebar .is-active {
+  color: #ffffff;
+  background-color: #626262;
+}
+
+.sidebar .is-active:hover {
+  color: #ffffff;
+  background-color: #626262;
+}

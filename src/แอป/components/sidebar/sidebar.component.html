@@ -1,0 +1,70 @@
+<div>
+  <div class="sidebar">
+    <a [routerLink]="['/profile']" routerLinkActive="is-active" href="./profile">
+      <div class="menu">
+        <div class="menu-icon">
+          <fa-icon [icon]="faUserEdit"></fa-icon>
+        </div>
+        <div class="menu-name">
+          <span>ข้อมูลส่วนตัว</span>
+        </div>
+      </div>
+    </a>
+    <a
+      *ngIf="isUser"
+      [routerLink]="['/study-plan']"
+      routerLinkActive="is-active"
+      routerLinkActiveOptions="{ exact: true }"
+      href="./study-plan"
+    >
+      <div class="menu">
+        <div class="menu-icon">
+          <fa-icon [icon]="faList"></fa-icon>
+        </div>
+        <div class="menu-name">
+          <span>วางแผนการเรียน</span>
+        </div>
+      </div>
+    </a>
+
+    <a
+      *ngIf="isTeacher"
+      [routerLink]="['/study-plan-consideration']"
+      routerLinkActive="is-active"
+      [ngClass]="{ 'is-active': tasksActive.isActive }"
+      routerLinkActiveOptions="{ exact: true }"
+      href="./study-plan-consideration"
+    >
+      <div class="menu">
+        <div class="menu-icon">
+          <fa-icon [icon]="faList"></fa-icon>
+        </div>
+        <div class="menu-name">
+          <span>พิจารณาแผนการเรียน</span>
+        </div>
+      </div>
+    </a>
+    <!-- manu not visible -->
+    <a
+      [routerLink]="['/study-plan']"
+      routerLinkActive="is-active"
+      style="display: none"
+      routerLinkActiveOptions="{ exact: true }"
+      href="./study-plan"
+      #tasksActive="routerLinkActive"
+    >
+    </a>
+
+    <a *ngIf="isAdmin" [routerLink]="['/user-manage']" routerLinkActive="is-active" href="/user-manage">User</a>
+    <a *ngIf="isAdmin" [routerLink]="['/adviser-manage']" routerLinkActive="is-active" href="/adviser-manage">Adviser</a>
+    <a *ngIf="isAdmin" [routerLink]="['/career-type-manage']" routerLinkActive="is-active" href="./career-type-manage"
+      >Career Type</a
+    >
+    <a *ngIf="isAdmin" [routerLink]="['/career-manage']" routerLinkActive="is-active" href="./career-manage">Career</a>
+    <a *ngIf="isAdmin" [routerLink]="['/module-manage']" routerLinkActive="is-active" href="./module-manage">Module</a>
+    <a *ngIf="isAdmin" [routerLink]="['/course-manage']" routerLinkActive="is-active" href="./course-manage">Course</a>
+    <a *ngIf="isAdmin" [routerLink]="['/special-course-manage']" routerLinkActive="is-active" href="./special-course-manage"
+      >Special Course</a
+    >
+  </div>
+</div>

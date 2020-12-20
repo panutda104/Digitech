@@ -1,0 +1,197 @@
+::ng-deep body {
+  background: var(--main-blue-gd);
+  min-height: fit-content;
+}
+:host {
+  display: flex;
+  font-family: "SUTRegular";
+  font-size: calc(1vmax + 0.5vmin);
+  padding: 2.5%;
+}
+
+section {
+  width: 100%;
+  margin: 7.5rem 1rem;
+}
+section > .header {
+  font-family: "SUTBold";
+  color: #ffffff;
+  font-size: 2.75rem;
+  text-shadow: 1px 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+section > .content {
+  background-color: #fafafa;
+  margin: 1vh 0;
+  padding: 5% 7.5%;
+  box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* -------------------------------------- */
+/* -----------   header menu  ----------- */
+/* -------------------------------------- */
+
+section > .content > .header {
+  font-size: 1rem;
+  margin: 1rem 0 2rem 0;
+}
+
+section > .content > .header .header-button {
+  position: relative;
+  display: flex;
+  min-height: 2rem;
+}
+
+section > .content > .header .header-button .add-button {
+  font-size: 1.25rem;
+  border: none;
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  right: 0;
+  color: #ffffff;
+  padding: 0.15rem 1.75rem;
+  background-color: var(--main-red-color);
+  cursor: pointer;
+}
+
+section > .content > .header .header-button .add-button .material-icons {
+  font-size: 1.25rem;
+  height: 1.5rem;
+}
+.content .header .header-menu {
+  position: relative;
+  display: flex;
+  margin: 2.5rem 0 0 0;
+}
+.content .header span {
+  margin-left: 1rem;
+}
+
+.content .header .header-menu .material-icons {
+  font-size: 1rem;
+  height: 1.25rem;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+  color: #777777;
+}
+
+::ng-deep .content .header .header-menu .mat-form-field {
+  font-family: "sutregular";
+  width: 100%;
+}
+::ng-deep .content .header .header-menu .mat-form-field-infix {
+  border-top: 1em;
+}
+
+/* ------ filter ------- */
+
+.content .header .header-menu .filter-input {
+  margin-left: auto;
+  width: 30%;
+}
+
+::ng-deep .filter-input .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: var(--main-green-color) !important;
+}
+
+::ng-deep .filter-input .mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: var(--main-green-color) !important;
+}
+
+::ng-deep .filter-input .mat-form-field-appearance-legacy .mat-form-field-underline {
+  bottom: 0;
+}
+::ng-deep .filter-input .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+  padding: 0;
+}
+
+/* ------ sort ------- */
+
+.mat-option {
+  font-family: "sutregular";
+}
+
+.mat-select {
+  font-family: "sutregular";
+}
+
+::ng-deep .sort-select .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+  padding: 0;
+}
+
+.content .header .header-menu .sort-select {
+  width: 15%;
+}
+
+::ng-deep .content .header .header-menu .sort-select .mat-form-field-underline {
+  display: none;
+}
+::ng-deep .content .header .header-menu .sort-select .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  color: var(--main-green-color);
+}
+::ng-deep .content .header .header-menu .sort-select .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: var(--main-green-color);
+}
+::ng-deep .sort-select .mat-select,
+.sort-select .mat-option {
+  font-size: 1rem;
+}
+
+::ng-deep .content .header .header-menu .sort-select .mat-form-field {
+  width: 100%;
+  padding: 0rem 1rem;
+  border-radius: 100px;
+  background-color: #efefef;
+}
+
+/* -------------------------------------- */
+/* ---------------  table  -------------- */
+/* -------------------------------------- */
+
+table {
+  width: 100%;
+  font-family: "SUTRegular";
+}
+
+.mat-header-cell {
+  font-size: 1rem;
+  font-family: "SUTBold";
+}
+.mat-cell,
+.mat-footer-cell {
+  font-size: 1rem;
+}
+
+.material-icons {
+  font-size: 1rem;
+  /* line-height: 1rem; */
+  height: 1rem;
+  width: 1rem;
+  vertical-align: middle;
+}
+
+.edit-icon,
+.delete-icon {
+  color: #292929;
+  background-color: #f4f4f4;
+  border: none;
+  border-radius: 100px;
+  width: 2rem;
+  height: 2rem;
+  margin: 0 0.25vw;
+}
+.edit-icon:hover {
+  color: #007e33;
+  background-color: #d4edda;
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.delete-icon:hover {
+  color: #de4343;
+  background-color: #f9dbdb;
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}

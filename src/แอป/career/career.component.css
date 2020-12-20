@@ -1,0 +1,314 @@
+:host {
+  font-family: "SUTRegular";
+  font-size: calc(1vmax + 0.5vmin);
+}
+/* <!------------------------- BANNER SECTION -----------------------> */
+.banner-bg {
+  padding-top: 5rem;
+  background: var(--main-blue-gd);
+  width: 100%;
+  min-height: max-content;
+}
+
+.banner-container {
+  /* padding: 0 15vw 10vh 15vw; */
+  padding: 2rem 10%;
+}
+
+.banner-container .banner-header {
+  font-family: "sutbold";
+  font-size: 2.5rem;
+  color: #ffffff;
+  text-shadow: 1px 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.banner-container .banner-content {
+  height: fit-content;
+  padding: 1vh 1vw;
+  display: flex;
+}
+
+.banner-container .banner-content span {
+  border-left: 0.45rem solid var(--main-red-color);
+}
+
+.banner-container .banner-content p {
+  font-family: "sutRegular";
+  font-size: 2rem;
+  line-height: 2.25rem;
+  color: #ffffff;
+  padding: 0.5vw 1vw;
+  margin: 0;
+}
+
+.banner-container iframe {
+  width: calc(560 * (2vw + 2vh) / 50);
+  height: calc(315 * (2vw + 2vh) / 50);
+  display: block;
+  margin: 2vh auto;
+}
+
+/* <!------------------------- MODULE SECTION -----------------------> */
+
+.module-container {
+  padding: 0 15%;
+  margin: 5% auto;
+}
+.module-container .header {
+  margin: 0 auto;
+  font-family: "sutbold";
+  font-size: calc(2vmax + 1vmin);
+  line-height: calc(2vmax + 1vmin);
+  text-align: center;
+  color: var(--main-blue-color);
+  text-shadow: 1px 5px 8px rgba(0, 0, 0, 0.1);
+}
+.module-container .content {
+  padding: 2vh 0;
+}
+.module-container .content .content-tab {
+  font-family: "sutbold";
+  font-size: calc(1vmax + 2vmin);
+  line-height: calc(1vmax + 2vmin);
+  background-color: #f4f4f4;
+  box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.2);
+  height: fit-content;
+  padding: 1vh 2vw;
+  margin-top: 5vh;
+  margin-bottom: 1.5vh;
+}
+
+.module-container .content .content-module {
+  padding: 1.5vh 2.5vw;
+}
+
+.module-container .content .content-module .row:first-of-type {
+  font-family: "sutBold";
+  font-size: 1.85rem;
+  line-height: 2rem;
+}
+
+.module-container .content .content-module a {
+  padding: 0;
+}
+
+.detail-button {
+  font-size: calc(0.75vmax + 0.75vmin);
+  border: 2px solid var(--main-red-color);
+  color: var(--main-red-color);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+hr {
+  margin: 1vh 0;
+}
+
+.module-container .content .content-module .row div {
+  margin: 0;
+  width: 100%;
+}
+
+.module-container .content .content-module .row div:nth-child(2) > div {
+  display: flex;
+  font-family: "sutRegular";
+}
+.module-container .content .content-module .row > div > div > div:first-of-type {
+  width: 10%;
+  min-width: max-content;
+}
+
+/* ------------------------ Moblie ------------------------ */
+@media only screen and (min-width: 320px) and (max-height: 812px) and (orientation: portrait) {
+  /* .banner-container {
+    padding: 0 15vw 5vh 15vw;
+  }
+  .banner-container .banner-header {
+    font-size: calc(3vmax + 3vmin);
+  }
+  .banner-container .banner-content p {
+    font-size: calc(2vmax + 1.75vmin);
+    line-height: calc(2vmax + 2.5vmin);
+  }
+  .module-container {
+    margin: 5vh auto;
+  }
+  .module-container .header {
+    font-size: calc(2vmax + 3vmin);
+    line-height: calc(2vmax + 3vmin);
+  }
+  .module-container .content .content-tab {
+    font-size: calc(1.5vmax + 2vmin);
+    line-height: calc(1.5vmax + 2vmin);
+    margin-top: 3vh;
+    padding: 1vh 5vw;
+  }
+
+  .module-container .content .content-module .row {
+    font-size: calc(2vmax + 1.5vmin);
+    line-height: calc(2vmax + 2vmin);
+  }
+
+  .module-container .content .content-module a {
+    margin-top: 0.5vh;
+  }
+  .detail-button {
+    font-size: calc(1vmax + 2vmin);
+    padding: 0vmin calc(1vw + 1vh);
+  }
+
+  .module-container .content .content-module .row p {
+    font-size: calc(1.5vmax + 1vmin);
+    line-height: calc(2vmax + 1vmin);
+  } */
+}
+
+/* ------------------------ Moblie ------------------------ */
+@media only screen and (min-width: 320px) and (max-height: 812px) and (orientation: portrait) {
+  .banner-bg {
+    padding-top: 0;
+    /* height: 100vh; */
+  }
+
+  .banner-container .banner-header {
+    font-size: calc(1rem + 4vw);
+    line-height: calc(1rem + 5vw);
+  }
+
+  .banner-container .banner-content {
+    margin-top: 0.5rem;
+  }
+
+  .banner-container .banner-content span {
+    border-left: 0.35rem solid var(--main-red-color);
+  }
+
+  .banner-container .banner-content p {
+    font-size: calc(0.85rem + 1vw);
+    line-height: calc(0.85rem + 2vw);
+    padding: 0 3vw;
+  }
+
+  .banner-container iframe {
+    width: calc(560 * (3vw + 2vh) / 50);
+    height: calc(315 * (3vw + 2vh) / 50);
+  }
+  .module-container {
+    padding: 0 10%;
+    margin: 10% auto;
+  }
+  .module-container .header {
+    font-size: calc(3vw + 1rem);
+    line-height: calc(3vw + 1rem);
+  }
+
+  .module-container .content .content-tab {
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .module-container .content .content-module .row:first-of-type {
+    font-size: 1.05rem;
+    line-height: 1.25rem;
+  }
+
+  .detail-button {
+    font-size: 0.75rem;
+    border: 2px solid var(--main-red-color);
+    margin: 2.5px 0 2.5px 30%;
+  }
+
+  hr {
+    margin: 0.5rem 0;
+  }
+
+  .module-container .content .content-module .row div:nth-child(2) > div {
+    font-size: 0.85rem;
+    line-height: 0.95rem;
+  }
+
+  .module-container .content .content-module .row > div > div > div:first-of-type {
+    width: 20%;
+    min-width: max-content;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 811px) and (orientation: landscape) {
+}
+
+/* ------------------------ Moblie ONLY X portrait ------------------------ */
+@media only screen and (width: 375px) and (height: 812px) and (orientation: portrait) {
+}
+
+/* ------------------------ Ipad ------------------------ */
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+}
+
+/* ------------------------ Desktops ------------------------ */
+@media only screen and (min-width: 1025px) {
+  .banner-container {
+    padding-top: 1rem;
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-bottom: 5rem;
+  }
+  .banner-container .banner-header {
+    font-size: calc(2.5vw + 2rem);
+  }
+  .banner-container .banner-content {
+    padding: 1vh 1vw;
+  }
+  .banner-container .banner-content p {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
+  .module-container .header {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+
+  .module-container .content .content-tab {
+    font-size: 2.5rem;
+    line-height: 2.25rem;
+    padding: 1rem 2rem 0.5rem 2rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .module-container .content .content-module {
+    padding: 1rem 2rem;
+  }
+
+  .module-container .content .content-module .row:first-of-type {
+    font-family: "sutBold";
+    font-size: 1.85rem;
+    line-height: 2rem;
+  }
+
+  .module-container .content .content-module .row div:nth-child(2) > div {
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+  }
+
+  .module-container .content .content-module a {
+    padding: 0;
+  }
+
+  .detail-button {
+    font-size: calc(0.75vmax + 0.75vmin);
+    border: 2px solid var(--main-red-color);
+    color: var(--main-red-color);
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  hr {
+    margin: 1vh 0;
+  }
+}

@@ -1,0 +1,110 @@
+<ng-container *ngIf="isDelete; then delete; else editOrcreate"> </ng-container>
+
+<ng-template #delete>
+  <section class="text-center">
+    <h2>ลบ</h2>
+    <div mat-dialog-content>ต้องการลบ ?</div>
+    <div mat-dialog-actions>
+      <button class="button-radius accept-button" mat-button (click)="onRemoveConfirm()">ยืนยัน</button>
+      <button class="button-radius cancel-button" mat-button (click)="onNoClick()">ยกเลิก</button>
+    </div>
+  </section>
+</ng-template>
+
+<ng-template #editOrcreate>
+  <section>
+    <div *ngIf="data.data; then edit else create"></div>
+    <ng-template #edit> <h2>แก้ไข Career Type</h2></ng-template>
+    <ng-template #create> <h2>เพิ่ม Career Type</h2></ng-template>
+    <div mat-dialog-content>
+      <form [formGroup]="careerTypeForm">
+        <div class="row">
+          <div class="col-3">ชื่อประเภทอาชีพ EN</div>
+          <div class="col-9">
+            <div class="form-group bmd-form-group">
+              <input type="text" class="form-control" id="career_type_name_en" formControlName="career_type_name_en" />
+              <span *ngIf="career_type_name_en.errors?.required && submitted"> ข้อมูลจำเป็นกรอก </span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">ชื่อประเภทอาชีพ TH</div>
+          <div class="col-9">
+            <div class="form-group bmd-form-group">
+              <input type="text" class="form-control" id="career_type_name_th" formControlName="career_type_name_th" />
+              <span *ngIf="career_type_name_th.errors?.required && submitted"> ข้อมูลจำเป็นกรอก </span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">รายละเอียดประเภทอาชีพ (EN)</div>
+          <div class="col-9">
+            <div class="form-group bmd-form-group">
+              <textarea class="form-control" id="career_type_detail_en" formControlName="career_type_detail_en"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">รายละเอียดประเภทอาชีพ (TH)</div>
+          <div class="col-9">
+            <div class="form-group bmd-form-group">
+              <textarea class="form-control" id="career_type_detail_th" formControlName="career_type_detail_th"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">สาขาวิชา</div>
+          <div class="col-9">
+            <div class="">
+              <mat-form-field floatLabel="never">
+                <mat-select placeholder="เลือกสาชาวิชา" id="career_type_syllabus" formControlName="career_type_syllabus">
+                  <mat-option *ngFor="let item of syllabus" [value]="item.id"> {{item.name_th}} </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+
+        <hr class="my-4" />
+        <div class="row">
+          <div class="col-3">อาชีพในประเภท</div>
+          <div class="col-9">
+            <div class="select-course">
+              <mat-form-field floatLabel="never">
+                <mat-select [formControl]="careerCtrl" placeholder="เลือกอาชีพ" #singleSelect>
+                  <mat-option class="mb-4">
+                    <ngx-mat-select-search [formControl]="careerFilterCtrl" placeholderLabel="Search"></ngx-mat-select-search>
+                  </mat-option>
+                  <mat-option *ngFor="let career of filteredCareers | async" [value]="career">
+                    {{career.career_name_en}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <button
+                class="button-radius add-button"
+                [disabled]="typeOf(careerCtrl.value)"
+                (click)="addCareer(careerCtrl.value)"
+              >
+                เพิ่ม
+              </button>
+            </div>
+
+            <div class="course-list" *ngIf="careerTypeForm.value.career_list.length > 0">
+              <mat-card *ngFor="let career of careerTypeForm.value.career_list ;let i = index">
+                {{career.career_name_en}}
+
+                <button class="delete-icon" (click)="deleteCareer(i,career)">
+                  <mat-icon>clear</mat-icon>
+                </button>
+              </mat-card>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div mat-dialog-actions>
+      <button class="button-radius accept-button" mat-button (click)="data.data? onUpdate() : onCreate()">บันทึก</button>
+      <button class="button-radius cancel-button" mat-button (click)="onNoClick()">ยกเลิก</button>
+    </div>
+  </section>
+</ng-template>

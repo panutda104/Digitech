@@ -1,0 +1,182 @@
+<ng-container *ngIf="isDelete; then delete; else editOrcreate"> </ng-container>
+
+<ng-template #delete>
+  <section class="text-center">
+    <h2>ลบ</h2>
+    <div mat-dialog-content>
+      ต้องการลบ ?
+    </div>
+    <div mat-dialog-actions>
+      <button
+        class="button-radius accept-button"
+        mat-button
+        (click)="onRemoveConfirm()"
+      >
+        ยืนยัน
+      </button>
+      <button
+        class="button-radius cancel-button"
+        mat-button
+        (click)="onNoClick()"
+      >
+        ยกเลิก
+      </button>
+    </div>
+  </section>
+</ng-template>
+
+<ng-template #editOrcreate>
+  <section>
+    <div *ngIf="data.data; then edit else create"></div>
+    <ng-template #edit> <h2>แก้ไข</h2></ng-template>
+    <ng-template #create> <h2>เพิ่ม</h2></ng-template>
+    <div mat-dialog-content>
+      <form [formGroup]="accountForm">
+        <div class="row">
+          <div class="col-2">รหัสนักศึกษา</div>
+          <div class="col-10">
+            <div class="form-group bmd-form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="user_id"
+                formControlName="user_id"
+              />
+              <span *ngIf="user_id.dirty || user_id.touched || submitted">
+                <span
+                  class="error-text"
+                  *ngIf="
+                user_id.value && user_id.invalid && !user_id.errors?.user_id
+              "
+                >
+                  รหัสนักศึกษาไม่ถูกต้อง
+                </span>
+                <span *ngIf="!user_id.value && user_id.errors?.required">
+                  ข้อมูลจำเป็นกรอก
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-2">Role</div>
+          <div class="col-10">
+            <div class="form-group bmd-form-group">
+              <select
+                class="form-control"
+                id="user_role"
+                formControlName="user_role"
+              >
+                <option *ngFor="let item of roles" [value]="item.value"
+                  >{{item.key}}</option
+                >
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-2">ชื่อ</div>
+          <div class="col-10">
+            <div class="form-group bmd-form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="user_firstname"
+                formControlName="user_firstname"
+              />
+              <span *ngIf="user_firstname.errors?.required && submitted">
+                ข้อมูลจำเป็นกรอก
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-2">นามสกุล</div>
+          <div class="col-10">
+            <div class="form-group bmd-form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="user_lastname"
+                formControlName="user_lastname"
+              />
+              <span *ngIf="user_lastname.errors?.required && submitted">
+                ข้อมูลจำเป็นกรอก
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-2">E-mail</div>
+          <div class="col-10">
+            <div class="form-group bmd-form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="user_email"
+                formControlName="user_email"
+              />
+              <span *ngIf="user_email.dirty || user_email.touched">
+                <span *ngIf="user_email.invalid">
+                  E-mail ไม่ถูกต้อง
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-2">เบอร์โทรศัพท์</div>
+          <div class="col-10">
+            <div class="form-group bmd-form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="user_tel"
+                formControlName="user_tel"
+              />
+              <span *ngIf="user_tel.dirty || user_tel.touched">
+                <span *ngIf="user_tel.invalid">
+                  เบอร์โทรศัพท์ไม่ถูกต้อง
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-2">หลักสูตร</div>
+          <div class="col-10">
+            <div class="form-group bmd-form-group">
+              <select
+                class="form-control"
+                id="syllabus_id"
+                formControlName="syllabus_id"
+              >
+                <option [value]="1">1</option>
+                <option [value]="2">2</option>
+              </select>
+              <span *ngIf="syllabus_id.errors?.required && submitted">
+                ข้อมูลจำเป็นกรอก
+              </span>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div mat-dialog-actions>
+      <button
+        class="button-radius accept-button"
+        mat-button
+        (click)="data.data? onUpdate() : onCreate()"
+      >
+        บันทึก
+      </button>
+      <button
+        class="button-radius cancel-button"
+        mat-button
+        (click)="onNoClick()"
+      >
+        ยกเลิก
+      </button>
+    </div>
+  </section>
+</ng-template>

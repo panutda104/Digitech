@@ -1,0 +1,74 @@
+<!------------------------- BANNER SECTION ----------------------->
+<section>
+  <div class="banner-bg">
+    <div class="banner-container">
+      <div class="banner-header mt-5">{{ career_list.career_name_en }}</div>
+      <div class="banner-content">
+        <span></span>
+        <p>
+          {{ career_list.career_detail_th }}
+        </p>
+      </div>
+      <ng-container *ngIf="career_list.career_type_link">
+        <iframe
+          [src]="career_list.career_type_link | safe: 'resourceUrl'"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </ng-container>
+    </div>
+  </div>
+</section>
+<!------------------------- END BANNER SECTION ----------------------->
+
+<!--------------------------- MODULE SECTION ------------------------->
+<section>
+  <div class="module-container">
+    <div class="header">ชุดวิชาบังคับ</div>
+    <div class="content">
+      <!-- year -->
+      <div *ngFor="let years of career_list.years">
+        <!-- <span *ngIf="years.year != 0"> -->
+        <div class="content-tab">ปีการศึกษาที่ {{ years.year }}</div>
+        <!-- module -->
+        <div class="content-module" *ngFor="let module of years.module_list">
+          <!-- module header -->
+          <div class="row">
+            <div class="col-md-2 col-3">
+              {{ module.module_id }}
+            </div>
+            <div class="col-md-8 col-9">{{ module.module_name_en }}</div>
+            <div class="col-md-2 col-12 p-0">
+              <button
+                class="button-radius detail-button"
+                (click)="openCourseDialog(module.module_name_en, module.module_name_th, module.courses)"
+              >
+                รายละเอียด
+              </button>
+            </div>
+          </div>
+          <hr />
+          <!-- course detail-->
+          <div class="row">
+            <div class="col-md-2 col-sm-12"></div>
+            <div class="col-md-10 col-sm-12">
+              <div *ngFor="let course of module.courses">
+                <div>{{ course.course_id }}</div>
+                <div>{{ course.course_name_en }}</div>
+              </div>
+            </div>
+          </div>
+          <!-- end module -->
+        </div>
+        <!-- </span> -->
+      </div>
+      <!-- end year -->
+    </div>
+  </div>
+</section>
+<!------------------------- END MODULE SECTION ----------------------->
+
+<!------------------------- FOOTER SECTION ------------------------->
+<app-footer></app-footer>
+<!----------------------- END FOOTER SECTION ----------------------->

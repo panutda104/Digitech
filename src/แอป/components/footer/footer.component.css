@@ -1,0 +1,71 @@
+.footer-container {
+  background: var(--main-blue-gd);
+  padding: 4vh 0;
+}
+
+.footer-container .sut-logo {
+  display: block;
+  margin: 0 auto;
+  height: calc(4vmax + 4vmin);
+}
+
+.footer-container .header {
+  font-family: "sutbold";
+  font-size: calc(1vmax + 0.75vmin);
+  line-height: calc(1vmax + 1vmin);
+  text-align: center;
+  color: #ffffff;
+  margin-top: 1vh;
+}
+
+.footer-container .body {
+  font-family: "sutregular";
+  font-size: calc(1vw + 0.25vh);
+  line-height: calc(1vw + 0.5vh);
+  text-align: center;
+  color: #ffffff;
+  margin-top: 0.5vh;
+}
+.footer-container .social {
+  text-align: center;
+  margin-top: 1vmin;
+}
+.footer-container .social img {
+  padding: 0 0.5vh;
+}
+.fb {
+  height: calc(1vmax + 1.5vmin);
+  margin-top: 0.5vh;
+}
+
+.dg {
+  height: calc(2vmax + 2vmin);
+}
+
+/* ------------------------ before Desktops ------------------------ */
+
+@media only screen and (min-width: 320px) and (max-width: 1024px) {
+  .footer-container {
+    padding: 3vmax 0;
+  }
+  .footer-container .sut-logo {
+    height: calc(5vmax + 5vmin);
+  }
+  .footer-container .header {
+    font-size: calc(1vmax + 2vmin);
+    line-height: calc(1vmax + 3vmin);
+    padding: 0 20%;
+  }
+  .footer-container .body {
+    font-size: calc(1vw + 1vh);
+    line-height: calc(2vmax);
+    padding: 0 10%;
+  }
+  .fb {
+    height: calc(2vmax + 2vmin);
+  }
+
+  .dg {
+    height: calc(3vmax + 3vmin);
+  }
+}

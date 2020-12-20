@@ -1,0 +1,695 @@
+/* <!------------------------- BANNER SECTION -----------------------> */
+.banner-bg {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  background: var(--main-blue-gd);
+  width: 100vw;
+  min-height: 48.8vw;
+  max-height: 48.8vw;
+  -webkit-clip-path: polygon(0 0, 100% 0%, 100% 80%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0%, 100% 80%, 0% 100%);
+}
+
+.banner-container {
+  margin-top: 7.5%;
+  display: flex;
+  width: 100vw;
+}
+
+.banner-container .banner-content {
+  width: 60%;
+  padding: 5% 10%;
+}
+
+.banner-container .banner-content .header {
+  font-family: "sutbold";
+  font-size: calc(4vw + 1vh);
+  line-height: calc(4vw + 1vh);
+  color: #ffffff;
+  text-shadow: 1px 2px 8px rgba(0, 0, 0, 0.4);
+  padding-right: 10%;
+}
+
+.banner-container .banner-content .detail {
+  font-family: "sutregular";
+  font-size: calc(0.75vw + 0.75vh + 0.75vmin);
+  line-height: calc(1vw + 1vh + 1vmin);
+  text-shadow: 1px 2px 8px rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  text-indent: 5%;
+  padding: 2.5% 10% 5% 0%;
+}
+
+.banner-container img {
+  position: absolute;
+  right: 6%;
+  top: 15;
+  z-index: -1;
+  width: 52%;
+}
+.banner-button {
+  font-family: "sutregular";
+  font-size: calc(0.75vmin + 1vmax);
+  color: #ffffff;
+  background-color: var(--main-red-color);
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 0 calc(1.5vw + 1vh);
+}
+
+/* <!------------------------- INTRO SECTION -----------------------> */
+.intro-container {
+  width: 100vw;
+}
+.intro-container img {
+  width: 35%;
+  margin: 0 auto;
+  display: block;
+}
+
+.intro-content {
+  padding: 2%;
+}
+
+.intro-content .header {
+  font-family: "sutbold";
+  font-size: calc(1vw + 1vh + 2vmax);
+  line-height: calc(1vw + 1vh + 2vmax);
+  text-align: center;
+  color: var(--main-blue-color);
+  margin-top: 1%;
+}
+
+.intro-content .detail {
+  font-family: "sutbold";
+  font-size: calc(1vw + 1vh + 1vmin);
+  line-height: calc(1vw + 1vh + 1vmin);
+  text-align: center;
+  color: var(--main-black-color);
+  margin-top: 1.5%;
+}
+
+.intro-content hr {
+  width: 30%;
+  border-top: 2px solid #cccccc;
+  margin: 3vmax auto;
+  border-radius: 10px;
+}
+
+/* <!------------------------- CERT SECTION -----------------------> */
+.cert-container {
+  background-color: #f8f8f8;
+}
+.cert-container .cert-content {
+  padding: 1% 10%;
+}
+.cert-container .cert-content .cert-img {
+  text-align: right;
+  margin: auto;
+}
+.cert-container .cert-content .cert-img img {
+  width: 90%;
+  margin-top: 7vh;
+}
+.cert-container .cert-content .header {
+  font-family: "sutbold";
+  font-size: calc(1vw + 1vh + 1vmax);
+  color: var(--main-blue-color);
+}
+.cert-container .cert-content .content {
+  font-family: "sutregular";
+  font-size: calc(1vw + 1vh);
+  line-height: calc(1vw + 1vh);
+  text-indent: 3vw;
+  width: 55%;
+  margin-top: 1.5vmin;
+}
+.cert-container .cert-content .cert-button {
+  display: flex;
+  margin-top: 4vmin;
+}
+.cert-container .cert-content .cert-button .cert-button-1 {
+  font-family: "sutregular";
+  font-size: calc(1vw + 1vh);
+  color: #ffffff;
+  background: var(--main-blue-gd);
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 0 calc(1.5vw + 1vh);
+  margin-right: 1vw;
+}
+.cert-container .cert-content .cert-button .cert-button-2 {
+  font-family: "sutregular";
+  font-size: calc(1vw + 1vh);
+  color: var(--main-black-color);
+  background-color: #ffffff;
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 0 calc(1.5vw + 1vh);
+  margin-right: 1vw;
+}
+
+/* <!------------------------- DEGREE SECTION -----------------------> */
+.degree-container {
+  padding: 5% 20%;
+}
+.degree-container .header {
+  font-family: "sutbold";
+  font-size: calc(1vw + 1vh + 1vmax);
+  color: var(--main-blue-color);
+  text-align: center;
+}
+
+.degree-container .content {
+  font-family: "sutregular";
+  font-size: calc(1vw + 1vh + 0.5vmin);
+  line-height: calc(1vw + 1vh + 0.5vmin);
+  text-align: center;
+  padding: 0 5vw;
+  margin-top: 1.5vmin;
+}
+.degree-container .syllabus-cover {
+  margin: 0 auto;
+  display: block;
+  height: 45vh;
+}
+.degree-container .syllabus-title {
+  font-family: "sutbold";
+  font-size: calc(1vw + 1vh + 0.5vmin);
+  text-align: center;
+  margin-top: 5%;
+}
+.degree-container .syllabus-detail {
+  font-family: "sutregular";
+  font-size: calc(1vmax + 1vmin);
+  line-height: calc(1vmax + 1.2vmin);
+  text-align: center;
+  padding: 0 3vw;
+}
+
+.syllabus-button {
+  font-family: "sutregular";
+  font-size: calc(1vmax + 1vmin);
+  color: #ffffff;
+  background: var(--main-blue-gd);
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 0 calc(1.5vw + 1vh);
+  margin: 0 auto;
+  display: block;
+  margin-top: 2vh;
+}
+
+.degree-container hr {
+  width: 30%;
+  border-top: 2px solid #cccccc;
+  margin: 5vmax auto;
+  border-radius: 10px;
+}
+
+/* ------------------------ Moblie ------------------------ */
+@media only screen and (min-width: 320px) and (max-height: 812px) and (orientation: portrait) {
+  /* <!------------------------- Portrait Moblie BANNER SECTION -----------------------> */
+  .banner-bg {
+    min-height: 175vw;
+    -webkit-clip-path: polygon(0 0, 100% 0%, 100% 90%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0%, 100% 90%, 0% 100%);
+  }
+
+  .banner-container {
+    display: initial;
+  }
+
+  .banner-container img {
+    right: 2%;
+    top: 60%;
+    width: 90%;
+  }
+
+  .banner-container .banner-content {
+    margin-top: 15%;
+    width: 100%;
+    padding: 8% 10%;
+    height: calc(190vw - var(--navbar-height));
+  }
+
+  .banner-container .banner-content .header {
+    padding: 0;
+    margin-top: 1vh;
+    font-size: calc(5.5vw + 2.5vh);
+    line-height: calc(5vw + 2.5vh);
+  }
+
+  .banner-container .banner-content .detail {
+    width: 100%;
+    padding: 6% 0% 8% 0%;
+    font-size: calc(5vw);
+    line-height: calc(5.5vw);
+  }
+  .banner-button {
+    font-size: calc(5vw);
+    padding: 0 calc(2.5vw + 2.5vh);
+  }
+
+  /* <!------------------------- Moblie INTRO SECTION -----------------------> */
+
+  .intro-container {
+    margin: 5% 0;
+  }
+
+  .intro-container img {
+    width: 45%;
+  }
+  .intro-content .header {
+    font-size: calc(4vw + 1vh);
+    line-height: calc(4.2vw + 1vh);
+    padding: 0 10%;
+    margin: 3% 0;
+  }
+
+  .intro-content .detail {
+    font-size: calc(1.75vmax + 1vmin);
+    line-height: calc(1.75vmax + 1vmin);
+    padding: 0 7.5%;
+    margin: 3% 0;
+  }
+
+  /* <!------------------------- Moblie CERT SECTION -----------------------> */
+
+  .cert-container .cert-content .cert-img,
+  .cert-container .cert-content .header {
+    text-align: center;
+    font-size: calc(1vw + 1vh + 2vmax);
+  }
+  .cert-container .cert-content .content {
+    text-align: center;
+    width: 100%;
+    font-size: calc(1vmax + 2vmin);
+    line-height: calc(1.5vmax + 2vmin);
+  }
+  .cert-container .cert-content .cert-button {
+    display: table;
+    margin: 2vh auto 7vh auto;
+  }
+
+  .cert-container .cert-content .cert-button .cert-button-1,
+  .cert-container .cert-content .cert-button .cert-button-2 {
+    font-size: calc(1vmax + 2vmin);
+    margin-right: 3vw;
+    display: inline-flex;
+  }
+
+  /* <!------------------------- Moblie DEGREE SECTION -----------------------> */
+
+  .degree-container {
+    padding: 10% 10%;
+  }
+  .degree-container .header {
+    font-size: calc(1vw + 1vh + 2vmax);
+  }
+  .degree-container .content {
+    font-size: calc(1vmax + 2vmin);
+    line-height: calc(1.5vmax + 2vmin);
+    padding: 0;
+  }
+
+  .degree-container .syllabus-cover {
+    height: 30vh;
+  }
+
+  .degree-container .syllabus-title {
+    font-size: calc(1vw + 1vh + 2vmin);
+  }
+  .degree-container .syllabus-detail {
+    font-size: calc(1vmax + 2vmin);
+    line-height: calc(1.5vmax + 2vmin);
+    padding: 0 3vw;
+  }
+  .syllabus-button {
+    font-size: calc(1vmax + 2vmin);
+  }
+  .degree-container hr {
+    width: 60%;
+  }
+}
+
+@media only screen and (min-width: 320px) and (orientation: landscape) {
+  /* <!------------------------- Landscape Moblie BANNER SECTION -----------------------> */
+
+  .banner-container .banner-content {
+    height: calc(85vh - var(--navbar-height));
+  }
+  .banner-container .banner-content .detail {
+    font-size: calc(1vw + 1vh + 1.5vmin);
+    line-height: calc(1vw + 1vh + 1.75vmin);
+  }
+  .banner-button {
+    font-size: calc(1vw + 1vh + 1.5vmin);
+  }
+
+  /* <!------------------------- Landscape Moblie INTRO SECTION -----------------------> */
+
+  .intro-container img {
+    margin-top: 2vmax;
+    width: 30%;
+  }
+
+  .intro-content .header {
+    font-size: calc(3vmax + 1vmin);
+    line-height: calc(3vmax + 1vmin);
+    padding: 0 20%;
+  }
+
+  .intro-content .detail {
+    font-size: calc(2vmax + 1.75vmin);
+    line-height: calc(2vmax + 2vmin);
+    padding: 0 10%;
+  }
+
+  .col-sm-12 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  /* <!------------------------- Landscape Moblie CERT SECTION -----------------------> */
+
+  .cert-container .cert-content {
+    padding: 2% 7.5%;
+  }
+  .cert-container .cert-content .cert-img img {
+    width: 110%;
+  }
+  .cert-container .cert-content .header {
+    font-size: calc(1vw + 1vh + 2vmax);
+  }
+  .cert-container .cert-content .content {
+    font-size: calc(1vmax + 2vmin);
+    line-height: calc(1.5vmax + 2vmin);
+    width: 100%;
+  }
+  .cert-container .cert-content .cert-button .cert-button-1,
+  .cert-container .cert-content .cert-button .cert-button-2 {
+    font-size: calc(1vmax + 2vmin);
+  }
+
+  /* <!------------------------- Landscape Moblie DEGREE SECTION -----------------------> */
+
+  .degree-container {
+    padding: 10% 10%;
+  }
+  .degree-container .header {
+    font-size: calc(1vw + 1vh + 2vmax);
+  }
+  .degree-container .content {
+    font-size: calc(1vmax + 2vmin);
+    line-height: calc(1.5vmax + 2vmin);
+    padding: 0;
+  }
+
+  .degree-container .syllabus-cover {
+    height: 45vh;
+  }
+
+  .degree-container .syllabus-title {
+    font-size: calc(1vw + 1vh + 2vmin);
+  }
+  .degree-container .syllabus-detail {
+    font-size: calc(1vmax + 2vmin);
+    line-height: calc(1.5vmax + 2vmin);
+    padding: 0 2.5vw;
+  }
+  .syllabus-button {
+    font-size: calc(1vmax + 2vmin);
+  }
+  .degree-container hr {
+    width: 60%;
+  }
+}
+
+/* ------------------------ Moblie ONLY X portrait ------------------------ */
+@media only screen and (width: 375px) and (height: 812px) and (orientation: portrait) {
+  .banner-bg {
+    min-height: 185vw;
+  }
+
+  .banner-container img {
+    top: 60%;
+    width: 90%;
+  }
+
+  .banner-container .banner-content {
+    width: 100%;
+    padding: 8% 10%;
+    height: calc(190vw - var(--navbar-height));
+  }
+  .intro-container img {
+    width: 40%;
+  }
+}
+
+/* ------------------------ Ipad ------------------------ */
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  /* <!------------------------- Ipad BANNER SECTION -----------------------> */
+
+  .banner-bg {
+    min-height: 55.8vw;
+    max-height: 55.8vw;
+    -webkit-clip-path: polygon(0 0, 100% 0%, 100% 80%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0%, 100% 80%, 0% 100%);
+  }
+
+  .banner-container {
+    display: flex;
+    width: 100vw;
+  }
+
+  .banner-container > img {
+    right: 8%;
+    top: 10%;
+    width: 52%;
+  }
+
+  .banner-container .banner-content {
+    width: 65%;
+    padding: 5% 10%;
+    height: calc(55.8vw - var(--navbar-height));
+  }
+
+  .banner-container .banner-content .header {
+    margin-top: 0;
+    padding-right: 0;
+    font-size: calc(4.3vw + 1vh);
+    line-height: calc(4vw + 1vh);
+  }
+
+  .banner-container .banner-content .detail {
+    width: 100%;
+    padding: 2.5% 10% 5% 0%;
+    font-size: calc(2.5vmin);
+    line-height: calc(3vmin);
+  }
+  .banner-button {
+    font-size: calc(2.5vmin);
+    padding: 0 calc(1.5vw + 1vh);
+  }
+
+  /* <!------------------------- Ipad INTRO SECTION -----------------------> */
+
+  .intro-content .header {
+    font-size: calc(2vmin + 1.5vmax);
+    line-height: calc(2.5vmin + 1.5vmax);
+    padding: 0 20%;
+  }
+
+  .intro-content .detail {
+    font-size: calc(1.5vmin + 1vmax);
+    line-height: calc(2vmin + 1vmax);
+    padding: 0 10%;
+  }
+
+  .col-sm-12 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  /* <!------------------------- Ipad CERT SECTION -----------------------> */
+
+  .cert-container .cert-content {
+    padding: 2% 6%;
+  }
+  .cert-container .cert-content .cert-img img {
+    width: 110%;
+    margin-top: 4vh;
+  }
+  .cert-container .cert-content .content {
+    font-size: calc(1vmax + 0.85vmin);
+    line-height: calc(1vmax + 1.25vmin);
+    width: 100%;
+  }
+  .cert-container .cert-content .cert-button {
+    font-size: calc(1vmax + 0.85vmin);
+    margin-top: 2vmin;
+  }
+
+  /* <!------------------------- Ipad DEGREE SECTION -----------------------> */
+
+  .degree-container {
+    padding: 7% 10%;
+  }
+
+  .degree-container .content {
+    font-size: calc(1vmax + 0.85vmin);
+    line-height: calc(1vmax + 1.25vmin);
+  }
+  .degree-container .syllabus-cover {
+    height: 30vh;
+  }
+
+  .degree-container .syllabus-detail {
+    font-size: calc(1vmax + 0.85vmin);
+    line-height: calc(1vmax + 1.25vmin);
+  }
+
+  .syllabus-button {
+    font-size: calc(1vmax + 0.85vmin);
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .banner-container .banner-content {
+    height: calc(50vw - var(--navbar-height));
+  }
+  .banner-container .banner-content .detail {
+    font-size: calc(0.75vw + 0.75vh + 0.75vmin);
+    line-height: calc(1vw + 1vh + 1vmin);
+  }
+  .banner-button {
+    font-size: calc(0.75vw + 0.75vh + 0.75vmin);
+  }
+  .intro-content .header {
+    font-size: calc(1.5vmin + 1.5vmax);
+    line-height: calc(2vmin + 1.5vmax);
+    padding: 0 30%;
+  }
+
+  .intro-content .detail {
+    font-size: calc(1vmin + 1.5vmax);
+    line-height: calc(1vmin + 1.5vmax);
+    padding: 0 12.5%;
+  }
+  .cert-container .cert-content .content,
+  .degree-container .content {
+    font-size: calc(1vmin + 1.25vmax);
+    line-height: calc(1.5vmin + 1vmax);
+  }
+
+  .cert-container .cert-content .cert-button .cert-button-1,
+  .cert-container .cert-content .cert-button .cert-button-2 {
+    font-size: calc(1vmin + 1.25vmax);
+  }
+
+  .degree-container .syllabus-title {
+    font-size: calc(2vmax + 1vmin);
+  }
+  .degree-container .syllabus-detail {
+    font-size: calc(1vmin + 1.25vmax);
+    line-height: calc(1.5vmin + 1vmax);
+  }
+
+  .syllabus-button {
+    font-size: calc(1vmax + 1.5vmin);
+  }
+}
+
+/* ------------------------ Desktops ------------------------ */
+@media only screen and (min-width: 1025px) {
+  /* <!------------------------- Desktops BANNER SECTION -----------------------> */
+
+  .banner-container .banner-content {
+    height: calc(48.8vw - var(--navbar-height));
+  }
+  .banner-container .banner-content .header {
+    font-size: calc(4vw + 1vh);
+    line-height: calc(4vw + 1vh);
+  }
+
+  .banner-container .banner-content .detail {
+    font-size: calc(0.75vw + 0.75vh + 0.75vmin);
+    line-height: calc(1vw + 0.75vh + 1vmin);
+  }
+  .banner-button {
+    font-size: calc(0.75vmin + 1vmax);
+  }
+
+  /* <!------------------------- Desktops INTRO SECTION -----------------------> */
+
+  .intro-container {
+    height: calc(30vh + 25vw);
+  }
+  .intro-container img {
+    margin-top: 15vh;
+    width: 25%;
+  }
+  .intro-content .header {
+    font-size: calc(1vw + 1vh + 1vmax);
+    line-height: calc(1vw + 1vh + 1vmax);
+    padding: 0 32%;
+  }
+
+  .intro-content .detail {
+    font-size: calc(0.75vw + 0.75vh + 1vmin);
+    line-height: calc(1vw + 1vh + 1vmin);
+    padding: 0 15.5vw;
+  }
+
+  /* <!------------------------- Desktops CERT SECTION -----------------------> */
+
+  .cert-container .cert-content {
+    padding: 1% 10%;
+  }
+
+  .cert-container .cert-content .cert-img img {
+    width: 90%;
+    margin-top: 7vh;
+  }
+  .cert-container .cert-content .header {
+    font-size: calc(1vw + 1vh + 1vmax);
+  }
+  .cert-container .cert-content .content {
+    font-size: calc(1vmax + 0.5vmin);
+    line-height: calc(1vw + 1vh);
+    text-indent: 3vw;
+    width: 65%;
+  }
+  .cert-container .cert-content .cert-button .cert-button-1,
+  .cert-container .cert-content .cert-button .cert-button-2 {
+    font-size: calc(0.75vmax + 1vmin);
+  }
+
+  /* <!------------------------- Desktops DEGREE SECTION -----------------------> */
+
+  .degree-container {
+    padding: 5% 20%;
+  }
+
+  .degree-container .header {
+    font-size: calc(1vw + 1vh + 1vmax);
+  }
+  .degree-container .content {
+    font-size: calc(1vmax + 0.75vmin);
+    line-height: calc(1vmax + 1.5vmin);
+  }
+
+  .degree-container .syllabus-title {
+    font-size: calc(1vw + 1vh + 0.5vmin);
+  }
+  .degree-container .syllabus-detail {
+    font-size: calc(1vmax + 0.5vmin);
+    line-height: calc(1vmax + 1vmin);
+  }
+
+  .syllabus-button {
+    font-size: calc(0.75vmax + 1vmin);
+  }
+
+  .degree-container hr {
+    width: 30%;
+  }
+}

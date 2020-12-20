@@ -1,0 +1,29 @@
+<div class="course-dialog">
+  <div class="dialog-header">
+    <p>{{ "รายละเอียดวิชา ในชุดวิชา " + data.module_name_en }}</p>
+    <hr />
+  </div>
+  <div class="dialog-body" *ngFor="let course of data.courses">
+    <div class="row">
+      <div class="col-2">{{ course.course_id }}</div>
+      <div class="col-10">
+        <div class="course-title">
+          <div class="name">
+            <p>{{ course.course_name_en }}</p>
+            <p>{{ course.course_name_th }}</p>
+          </div>
+          <div class="credit">
+            {{ course.course_credit }}
+            {{ course.course_credit_hour }}
+          </div>
+        </div>
+        <div class="course-detail">
+          {{ course.course_detail_th }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="button-area">
+    <button class="button-radius back-button" (click)="onNoClick()">กลับ</button>
+  </div>
+</div>

@@ -1,0 +1,172 @@
+::ng-deep body {
+  background: var(--main-blue-gd);
+  min-height: fit-content;
+}
+:host {
+  display: flex;
+  font-family: "SUTRegular";
+  font-size: calc(1vmax + 0.5vmin);
+  padding: 2.5%;
+}
+
+section {
+  width: 100%;
+  margin: 7.5rem 1rem;
+}
+
+section > .header {
+  font-family: "SUTBold";
+  color: #ffffff;
+  font-size: 2.75rem;
+  text-shadow: 1px 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+section > .content {
+  background-color: #fafafa;
+  margin: 1vh 0;
+  padding: 5% 7.5%;
+  box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.adviser-select-section {
+  background-color: #fff;
+  border-radius: 7px;
+  padding: 2.5%;
+  box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.05);
+}
+section > .content > .header-button {
+  position: relative;
+  display: flex;
+  width: 100%;
+  margin: 3rem 0 1rem 0;
+}
+section > .content > .header-button .add-button {
+  font-size: 1.25rem;
+  border: none;
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.2);
+  margin-left: auto;
+  color: #ffffff;
+  padding: 0.15rem 1.75rem;
+  background-color: var(--main-red-color);
+  cursor: pointer;
+
+  display: block;
+}
+
+section > .content > .header-button .add-button .material-icons {
+  font-size: 1.25rem;
+  height: 1.5rem;
+  vertical-align: middle;
+}
+
+/* -------------------------------------- */
+/* ---------- adviser select  ----------- */
+/* -------------------------------------- */
+
+.select-adviser {
+  margin: 0 auto;
+  display: flex;
+  width: 60%;
+}
+::ng-deep .select-adviser .mat-form-field-underline {
+  display: none;
+}
+::ng-deep .select-adviser .mat-form-field.mat-focused.mat-primary .mat-select-arrow,
+::ng-deep .select-adviser .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: var(--main-green-color);
+}
+
+.select-adviser .mat-option,
+.select-adviser .mat-select,
+.select-adviser .mat-form-field,
+::ng-deep .select-adviser .mat-select-search-inside-mat-option .mat-select-search-input {
+  font-size: 1.225rem;
+  font-family: "sutregular";
+}
+
+.select-adviser .mat-form-field {
+  width: 100%;
+  padding: 0.5rem 1.5rem;
+  border-radius: 100px;
+  background-color: #f8f8f8;
+}
+
+.select-adviser .mat-form-field {
+  max-width: unset;
+  margin: unset;
+  display: inline-block;
+}
+
+::ng-deep .select-adviser .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+  padding-bottom: 0;
+}
+
+::ng-deep .select-adviser .mat-form-field-infix {
+  border-top: 0;
+}
+::ng-deep .select-adviser .mat-form-field-appearance-legacy .mat-form-field-infix {
+  padding: 0;
+}
+.select-adviser .mat-option {
+  height: 2em !important;
+}
+::ng-deep .select-adviser .mat-form-field-appearance-legacy .mat-form-field-label {
+  top: 0em;
+}
+::ng-deep .select-adviser .mat-form-field-label-wrapper {
+  top: 0em;
+  padding-top: 0em;
+}
+::ng-deep .select-adviser .mat-select-panel .mat-optgroup-label,
+.select-adviser .mat-select-panel .mat-option {
+  height: max-content;
+}
+
+::ng-deep .select-adviser .mat-option {
+  font-size: 1.25rem !important;
+  line-height: 2.5rem !important;
+  height: max-content !important;
+}
+
+/* -------------------------------------- */
+/* ---------------  table  -------------- */
+/* -------------------------------------- */
+
+table {
+  width: 100%;
+  font-family: "SUTRegular";
+}
+
+.mat-header-cell {
+  font-size: 1rem;
+  font-family: "SUTBold";
+}
+
+.mat-cell,
+.mat-footer-cell {
+  font-size: 1rem;
+}
+
+.material-icons {
+  font-size: 1rem;
+  /* line-height: 1rem; */
+  height: 1rem;
+  width: 1rem;
+  vertical-align: middle;
+}
+
+.delete-icon {
+  color: #292929;
+  background-color: #f4f4f4;
+  border: none;
+  border-radius: 100px;
+  width: 2rem;
+  height: 2rem;
+  margin: 0 0.25vw;
+}
+.delete-icon:hover {
+  color: #de4343;
+  background-color: #f9dbdb;
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}

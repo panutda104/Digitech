@@ -1,0 +1,58 @@
+<section>
+  <div class="login-container">
+    <!------------------------- HEADER SECTION ------------------------->
+    <div class="login-header">
+      <p>ระบบแนะนำอาชีพ</p>
+      และแผนการเรียน
+    </div>
+    <div class="login-box">
+      <div class="header">เข้าสู่ระบบ</div>
+
+      <!------------------------- FORM SECTION ------------------------->
+
+      <form [formGroup]="loginForm">
+        <!-- <div class="form-group">
+          <label for="formGroupExampleInput" class="bmd-label-floating"
+            >รหัสนักศึกษา</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            formControlName="username"
+          />
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2" class="bmd-label-floating"
+            >รหัสผ่าน</label
+          >
+          <input
+            class="form-control"
+            id="password"
+            formControlName="password"
+          />
+        </div> -->
+        <mat-form-field appearance="fill">
+          <mat-label>รหัสนักศึกษา</mat-label>
+          <input matInput type="text" id="username" formControlName="username" />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>รหัสผ่าน</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" id="password" formControlName="password" />
+          <span mat-icon-button matSuffix (click)="hide = !hide" (keydown.enter)="OnLogin()" [attr.aria-pressed]="hide">
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </span>
+        </mat-form-field>
+
+        <!------------------------- BUTTON ------------------------->
+        <button (click)="OnLogin()" (keyup.enter)="OnLogin()" class="button-radius login-button">ลงชื่อเข้าใช้</button>
+      </form>
+
+      <!------------------------- REGISTER ------------------------->
+      <!-- <p>
+        ยังไม่มีบัญชี?
+        <a href="./register">ลงทะเบียน</a>
+      </p> -->
+    </div>
+  </div>
+</section>
